@@ -1,0 +1,287 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-50721.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vue&#8211;vuex 中 Modules 详解</title>
+        <meta name="description" content="　　在Vue中State使用是单一状态树结构，应该的所有的状态都放在state里面，如果项目比较复杂，那state是一个很大的对象，store对象也将对变得非常大，难于管理。于是Vuex中就存在了另外" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-50721.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="vue&#8211;vuex 中 Modules 详解" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/9e0717bd314cdf692bfbf37efae3d3e1.webp" />
+        <meta property="og:release_date" content="2025-02-03T11:27:38" />
+    <meta property="og:updated_time" content="2025-02-03T11:27:38" />
+        <meta property="og:description" content="　　在Vue中State使用是单一状态树结构，应该的所有的状态都放在state里面，如果项目比较复杂，那state是一个很大的对象，store对象也将对变得非常大，难于管理。于是Vuex中就存在了另外" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue&#8211;vuex 中 Modules 详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="#">关于</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">联系</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>vue&#8211;vuex 中 Modules 详解</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				</h1> <p><span style="font-size: 16px">　　在Vue中State使用是单一状态树结构，应该的所有的状态都放在state里面，如果项目比较复杂，那state是一个很大的对象，store对象也将对变得非常大，难于管理。于是Vuex中就存在了另外一个核心概念 modules。本文就来总结 modules 相关知识点。</span></p> </h1> <h2><span style="font-size: 16px">&nbsp; &nbsp; 1 、什么是模块Modules</span></h2> <p><span style="font-size: 16px">&nbsp; &nbsp; 　　Vuex允许我们将store分割成模块(Module), 而每个模块拥有自己的state、getters、mutation、action等,甚至是嵌套子模块——从上至下进行同样方式的分割。</span></p> <div> <div class="cnblogs_code"> <pre>    const moduleA =<span style="color: rgba(0, 0, 0, 1)"> {         state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({ ... }),         mutations: { ... },         actions: { ... },         getters: { ... }     }     const moduleB</span>=<span style="color: rgba(0, 0, 0, 1)"> {         state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({ ... }),         mutations: { ... },         actions: { ... }     }     const store</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Vuex.Store({         modules: {             a: moduleA,             b: moduleB         }     })</span><span style="color: rgba(0, 0, 255, 1)">this</span>.store.state.a<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 获得moduleA 的状态</span><span style="color: rgba(0, 0, 255, 1)">this</span>.store.state.b<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 获得moduleB 的状态</span></pre> </div> <div> <p><span style="font-size: 16px">　　内部state，模块内部的state是局部的，也就是模块私有的，</span></p> <p><span style="font-size: 16px">　　内部getter,mutation,action 仍然注册在全局命名空间内，这样使得多个模块能够对同一 mutation 或 action 作出响应。</span></p> <div> <div> <h2><span style="font-size: 16px">　　2、模块内部参数问题</span></h2> <p><span style="font-size: 16px">　　对于模块内部的 mutation 和 getter，接收的第一个参数是模块的局部状态对象 state。</span></p> <p><span style="font-size: 16px">　　对于模块内部的 action，局部状态通过 context.state 暴露出来，根节点状态则为 context.rootState：</span></p> <p><span style="font-size: 16px">　　对于模块内部的 getter，根节点状态会作为第三个参数暴露出来：</span></p> <div> <div class="cnblogs_code"> <pre>    const moduleA =<span style="color: rgba(0, 0, 0, 1)"> {         state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({             count:</span>""<span style="color: rgba(0, 0, 0, 1)">,         }),         actions: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">这里的state为局部状态，rootState为根节点状态</span><span style="color: rgba(0, 0, 0, 1)">            incrementIfOddOnRootSum ({ state, commit, rootState }) {</span><span style="color: rgba(0, 0, 255, 1)">if</span> ((state.count + rootState.count) % 2 === 1<span style="color: rgba(0, 0, 0, 1)">) {                     commit(</span>'increment'<span style="color: rgba(0, 0, 0, 1)">)                 }             }         }         mutations: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 这里的 `state` 对象是模块的局部状态</span><span style="color: rgba(0, 0, 0, 1)">            increment (state) {                 state.count</span>++<span style="color: rgba(0, 0, 0, 1)">             }         },         getters: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">这里的state为局部状态，rootState为根节点状态</span><span style="color: rgba(0, 0, 0, 1)">            doubleCount (state) {</span><span style="color: rgba(0, 0, 255, 1)">return</span> state.count * 2<span style="color: rgba(0, 0, 0, 1)">             },             sumWithRootCount (state, getters, rootState) {</span><span style="color: rgba(0, 0, 255, 1)">return</span> state.count +<span style="color: rgba(0, 0, 0, 1)"> rootState.count             }         }     }</span></pre> </div> <div> <h2><span style="font-size: 16px">　　3、模块命名空间问题</span></h2> <h3><span style="font-size: 16px">　　（1）namespaced: true 使模块成为带命名空间的模块</span></h3> <p><span style="font-size: 16px">　　当模块被注册后，它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名。</span></p> </div> <div class="cnblogs_code"> <pre>const store =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Vuex.Store({   modules: {     account: {       namespaced:</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 模块内容（module assets） 在使用模块内容（module assets）时不需要在同一模块内额外添加空间名前缀。</span>       state: () =&gt; ({}),<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 模块内的状态已经是嵌套的了，使用 `namespaced` 属性不会对其产生影响</span><span style="color: rgba(0, 0, 0, 1)">      getters: {         isAdmin() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt;使用: getters['account/isAdmin'],</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 你可以使用 getter 的第四个参数来调用</span><span style="color: rgba(0, 0, 0, 1)">        someGetter(state, getters, rootState, rootGetters) {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> getters.isAdmin</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> rootGetters.someOtherGetter</span><span style="color: rgba(0, 0, 0, 1)">        },       },       actions: {         login() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt;使用: dispatch('account/login')</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 你可以使用 action 的第四个参数来调用</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">若需要在全局命名空间内分发 action 或提交 mutation，将 { root: true } 作为第三参数传给 dispatch 或 commit 即可</span><span style="color: rgba(0, 0, 0, 1)">        someAction({ dispatch, commit, getters, rootGetters }) {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> getters.isAdmin;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> rootGetters.someGetter;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> dispatch("someOtherAction");</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> dispatch("someOtherAction", null, { root: true });</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> commit("someMutation");</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> commit("someMutation", null, { root: true });</span><span style="color: rgba(0, 0, 0, 1)">        },         someOtherAction(ctx, payload) {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 若需要在带命名空间的模块注册全局 action，你可添加 root: true，并将这个 action 的定义放在函数 handler 中。</span><span style="color: rgba(0, 0, 0, 1)">        otherAction: {           root:</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,           handler(namespacedContext, payload) {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 'someAction'</span><span style="color: rgba(0, 0, 0, 1)">        },       },       mutations: {         login() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt;使用: commit('account/login')</span><span style="color: rgba(0, 0, 0, 1)">      },</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 嵌套模块</span><span style="color: rgba(0, 0, 0, 1)">      modules: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 继承父模块的命名空间</span><span style="color: rgba(0, 0, 0, 1)">        myPage: {           state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({}),           getters: {             profile() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 使用:getters['account/profile']</span><span style="color: rgba(0, 0, 0, 1)">          },         },</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 进一步嵌套命名空间</span><span style="color: rgba(0, 0, 0, 1)">        posts: {           namespaced:</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,            state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({}),           getters: {             popular() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 使用:getters['account/posts/popular']</span><span style="color: rgba(0, 0, 0, 1)">          },         },       },     },   }, });</span></pre> </div> <div> <h3><span style="font-size: 16px">　　（2）带命名空间的绑定函数的使用</span></h3> <p><span style="font-size: 16px">　　当使用 mapState, mapGetters, mapActions 和 mapMutations 这些函数来绑定带命名空间的模块时，写起来可能比较繁琐</span>：</p> <div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">     computed: {             ...mapState({                 a: state</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> state.some.nested.module.a,                 b: state</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> state.some.nested.module.b             })         },         methods: {             ...mapActions([</span>'some/nested/module/foo',<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; this['some/nested/module/foo']()</span>                 'some/nested/module/bar'<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; this['some/nested/module/bar']()</span><span style="color: rgba(0, 0, 0, 1)">            ])         }</span></pre> </div> <p><span style="font-size: 16px">　　createNamespacedHelpers 创建基于某个命名空间辅助函数,它返回一个对象，对象里有新的绑定在给定命名空间值上的组件绑定辅助函数。</span></p> <div> <div class="cnblogs_code"> <pre>        import { createNamespacedHelpers } from 'vuex'<span style="color: rgba(0, 0, 0, 1)">         const { mapState, mapActions }</span>= createNamespacedHelpers('some/nested/module'<span style="color: rgba(0, 0, 0, 1)">)         export</span><span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)"> {             computed: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 在 `some/nested/module` 中查找</span><span style="color: rgba(0, 0, 0, 1)">                ...mapState({                 a: state</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> state.a,                 b: state</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> state.b                 })             },             methods: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 在 `some/nested/module` 中查找</span><span style="color: rgba(0, 0, 0, 1)">                ...mapActions([</span>'foo'<span style="color: rgba(0, 0, 0, 1)">,</span>'bar'<span style="color: rgba(0, 0, 0, 1)">                 ])             }         }</span></pre> </div> <div> <h2><span style="font-size: 16px">　　4、模块动态注册</span></h2> <p><span style="font-size: 16px">　　在 store 创建之后，你可以使用 store.registerModule 方法注册模块</span></p> <div> <div class="cnblogs_code"> <pre>        import Vuex from 'vuex'<span style="color: rgba(0, 0, 0, 1)">         const store</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Vuex.Store({<span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)"> 选项</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)"> })</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 注册模块 `myModule`</span>         store.registerModule('myModule'<span style="color: rgba(0, 0, 0, 1)">, {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> ...</span><span style="color: rgba(0, 0, 0, 1)">        })</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 注册嵌套模块 `nested/myModule`</span>         store.registerModule(['nested', 'myModule'<span style="color: rgba(0, 0, 0, 1)">], {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> ...</span>         })</pre> </div> <div> <p><span style="font-size: 16px">　　之后就可以通过 store.state.myModule 和 store.state.nested.myModule 访问模块的状态。</span></p> <p><span style="font-size: 16px">　　也可以使用 store.unregisterModule(moduleName) 来动态卸载模块。注意，你不能使用此方法卸载静态模块（即创建 store 时声明的模块）。</span></p> <p><span style="font-size: 16px">　　可以通过 store.hasModule(moduleName) 方法检查该模块是否已经被注册到 store。</span></p> </h1> <p><span style="font-size: 16px">　　以上就是本文的全部内容，希望给读者带来些许的帮助和进步，方便的话点个关注，小白的成长之路会持续更新一些工作中常见的问题和技术点。</span></p> <div></div> </div> </div> </div> </div> </div> </div> </div> </div> </div> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50207.htm">动物疫苗间隔时间多长打一次比较好（动物疫苗多长时间内打）</a></p>
+                                        <p>下一个：<a href="/news/article-50722.htm">广州宠物救助领养中心官网（广州宠物救助领养中心官网电话）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-50206.htm" title="成年猫注射疫苗应注意事项（成年猫要打什么针）">成年猫注射疫苗应注意事项（成年猫要打什么针）</a></li>
+                        <li class="py-2"><a href="/news/article-50207.htm" title="动物疫苗间隔时间多长打一次比较好（动物疫苗多长时间内打）">动物疫苗间隔时间多长打一次比较好（动物疫苗多长时间内打）</a></li>
+                        <li class="py-2"><a href="/news/article-50722.htm" title="广州宠物救助领养中心官网（广州宠物救助领养中心官网电话）">广州宠物救助领养中心官网（广州宠物救助领养中心官网电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-free-v2ray.htm" title="2月3日最新V2rayU订阅 | 18.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点链接地址">2月3日最新V2rayU订阅 | 18.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50721.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-node-share-links.htm" title="2月2日最新Free Clash Meta订阅 | 20.3M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点地址链接分享">2月2日最新Free Clash Meta订阅 | 20.3M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点地址链接分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                        <p>
+                                            <a href="/">首页</a> |
+                                            <a href="/free-node/">免费节点</a> |
+                                            <a href="/news/">新闻资讯</a> |
+                                            <a href="/about-us.htm">关于我们</a> |
+                                            <a href="/disclaimer.htm">免责申明</a> |
+                                            <a href="/privacy.htm">隐私申明</a> |
+                                            <a href="/sitemap.xml">网站地图</a>
+                                        </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
