@@ -1,0 +1,288 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-62759.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>encodeURI()和encodeURIComponent()的区别</title>
+        <meta name="description" content="encodeURI()和encodeURIComponent()方法用于编码传递给浏览器的URI（统一资源标识符）。有效的URI不能包含某些字符，如空格。这两个方法用于编码URI，这样用专门的UTF-" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-62759.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="encodeURI()和encodeURIComponent()的区别" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/87b87ae6370f9720d6850114a043d600.webp" />
+        <meta property="og:release_date" content="2025-02-25T04:59:55" />
+    <meta property="og:updated_time" content="2025-02-25T04:59:55" />
+        <meta property="og:description" content="encodeURI()和encodeURIComponent()方法用于编码传递给浏览器的URI（统一资源标识符）。有效的URI不能包含某些字符，如空格。这两个方法用于编码URI，这样用专门的UTF-" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="encodeURI()和encodeURIComponent()的区别">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>encodeURI()和encodeURIComponent()的区别</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-family:simsun;font-size:14px;color:#464646;line-height:21px;"></span></p> <p style="margin-left:0px;line-height:21px;">encodeURI()和encodeURIComponent()方法用于编码传递给浏览器的URI（统一资源标识符）。有效的URI不能包含某些字符，如空格。这两个方法用于编码URI，这样用专门的UTF-8编码替换所有的非有效字符，就可以使浏览器仍能够接受并理解它们。</p> <p style="margin-left:0px;line-height:21px;">encodeURI()方法用于处理完整的URI（例如，http://www.wrox.com/illegal value.htm），而encodeURIComponent()用于处理URI的一个片断（如前面的URI中的illegal value.htm）。这两个方法的主要区别是encodeURI()方法不对URI中的特殊字符进行编码，如冒号、前斜杠、问号和英镑符号，而encodeURIComponent()则对它发现的所有非标准字符进行编码。例如：</p> <p style="margin-left:0px;line-height:21px;"> <p style="margin-left:0px;line-height:21px;">这段代码输出两个值：</p> <p style="margin-left:0px;line-height:21px;"> <p style="margin-left:0px;line-height:21px;">可以看到，除空格外，第一个URI无任何改变，空格被替换为%20。第二个URI中的所有非字母数字字符都被替换成它们对应的编码，基本上使这个URI变得无用。这就是encodeURI()可以处理完整URI，而encodeURIComponent()只能处理附加在已有URI末尾的字符串的原因。</p> <p style="margin-left:0px;line-height:21px;">自然，还有两个方法用于解码编码过的URI，即decodeURI()和decodeURIComponent()。如你所料，这两个方法所做的恰与其对应的方法相反。decodeURI()方法只对用encodeURI()方法替换的字符解码。例如，％20将被替换为空格，而％23不会被替换，因为它表示的是英镑符号（#），encodeURI()并不替换这个符号。同样的，decodeURIComponent()会解码所有encodeURIComponent()编码过的字符，意味着它将对所有的特殊值解码。例如：</p> <p style="margin-left:0px;line-height:21px;"> <p style="margin-left:0px;line-height:21px;">这段代码输出两个值：</p> <p style="margin-left:0px;line-height:21px;"> <p style="margin-left:0px;line-height:21px;">在这个例子中，变量uri存放的是用encodeURIComponent()编码的字符串。生成的值说明了应用两个解码方法时会发生的事情。第一个值由decodeURI()输出，把%20替换成空格。第二个值由decodeURIComponent()输出，替换所有的特殊。</p> <div> <p style="margin-left:0px;line-height:21px;">这些URI方法<strong style="font-weight:bold;">encodeURI()</strong>、<strong style="font-weight:bold;">encodeURIComponent()</strong>、<strong style="font-weight:bold;">decodeURI()</strong>和<strong style="font-weight:bold;">decodeURICom- ponent()</strong>代替了BOM的<strong style="font-weight:bold;">escape()</strong>和<strong style="font-weight:bold;">unescape()</strong>方法。URI方法更可取，因为它们会对所有Unicode符号编码，而BOM方法只能对ASCII符号正确编码。尽量避免使用<strong style="font-weight:bold;">escape()</strong>和<strong style="font-weight:bold;">unescape()</strong>方法。</p> <p style="margin-left:0px;line-height:21px;"> <p style="margin-left:0px;line-height:21px;"> <p style="margin-left:0px;line-height:21px;">用AJAX提交数据时：</p> <p style="margin-left:0px;line-height:21px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发送端用<a style="text-decoration:none;color:#765f47;" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.goolunwen.com/"  rel="nofollow"><span style="line-height:21px;color:#ff0000;"><span style="line-height:21px;color:#ff0000;">encodeURIComponent(escape(<span style="line-height:21px;color:#000000;">xxxxxxx</span>))</span></span></a>就可以了（其他发送接受代码同上）</p> <p style="margin-left:0px;line-height:21px;">ASP端接收方法：</p> <p style="margin-left:0px;line-height:21px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;%</p> <p style="margin-left:0px;line-height:21px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response.Charset="gb2312"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response.Write<a style="text-decoration:none;color:#765f47;" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.goolunwen.com/"  rel="nofollow"><span style="line-height:21px;color:#ff0000;"><span style="line-height:21px;color:#ff0000;">Unescape(Request("<span style="line-height:21px;color:#000000;">act</span>"))</span></span></a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&gt;</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62172.htm">数据结构 &#8211; 单链表 C++ 实现</a></p>
+                                        <p>下一个：<a href="/news/article-62760.htm">开宠物食品店需要多少钱 开宠物食品店需要多少钱一个月</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-v2ray.htm" title="2月18日最新V2rayU订阅 | 22.5M/S|2025年V2ray/SSR/Clash/Shadowrocket免费节点链接地址">2月18日最新V2rayU订阅 | 22.5M/S|2025年V2ray/SSR/Clash/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-56404.htm" title="开个小型宠物食品加工厂怎么样啊视频讲解（开个宠物食品厂要投资多少钱）">开个小型宠物食品加工厂怎么样啊视频讲解（开个宠物食品厂要投资多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-v2ray.htm" title="2月23日最新V2rayU订阅 | 18.9M/S|2025年SSR/Clash/Shadowrocket/V2ray免费节点链接地址">2月23日最新V2rayU订阅 | 18.9M/S|2025年SSR/Clash/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-free-v2ray.htm" title="2月22日最新V2rayU订阅 | 22.9M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点链接地址">2月22日最新V2rayU订阅 | 22.9M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50721.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/news/article-50206.htm" title="成年猫注射疫苗应注意事项（成年猫要打什么针）">成年猫注射疫苗应注意事项（成年猫要打什么针）</a></li>
+                        <li class="py-2"><a href="/news/article-55305.htm" title="动物疫苗接种时间表图片高清版 动物疫苗接种时间表图片高清版大全">动物疫苗接种时间表图片高清版 动物疫苗接种时间表图片高清版大全</a></li>
+                        <li class="py-2"><a href="/news/article-54210.htm" title="在MySQL中，我们可以使用哪个函数从字符串列表中查找特定字符串的索引位置">在MySQL中，我们可以使用哪个函数从字符串列表中查找特定字符串的索引位置</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-free-v2ray-subscribe.htm" title="2月20日最新V2rayU订阅 | 22.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点链接地址">2月20日最新V2rayU订阅 | 22.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-node-subscribe.htm" title="2月17日最新V2rayU订阅 | 22.1M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点链接地址">2月17日最新V2rayU订阅 | 22.1M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                        <p>
+                                            <a href="/">首页</a> |
+                                            <a href="/free-node/">免费节点</a> |
+                                            <a href="/news/">新闻资讯</a> |
+                                            <a href="/about-us.htm">关于我们</a> |
+                                            <a href="/disclaimer.htm">免责申明</a> |
+                                            <a href="/privacy.htm">隐私申明</a> |
+                                            <a href="/sitemap.xml">网站地图</a>
+                                        </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
