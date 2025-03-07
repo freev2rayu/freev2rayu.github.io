@@ -1,0 +1,291 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-69001.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Python，如何将元组中的元素作为参数传入函数</title>
+        <meta name="description" content="本文由Markdown语法编辑器编辑完成。  1. 需求： 现在有一个Python的需求需要实现： 就是实现连接一次数据库，就能够执行多条SQL语句，而且这个SQL语句是需要通过调用者将每一次执行的参" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-69001.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="Python，如何将元组中的元素作为参数传入函数" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/d880e96cc4c2a1e4d2f24d699a926eb6.webp" />
+        <meta property="og:release_date" content="2025-03-07T06:35:41" />
+    <meta property="og:updated_time" content="2025-03-07T06:35:41" />
+        <meta property="og:description" content="本文由Markdown语法编辑器编辑完成。  1. 需求： 现在有一个Python的需求需要实现： 就是实现连接一次数据库，就能够执行多条SQL语句，而且这个SQL语句是需要通过调用者将每一次执行的参" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python，如何将元组中的元素作为参数传入函数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>Python，如何将元组中的元素作为参数传入函数</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>本文由Markdown语法编辑器编辑完成。</p> <h2> <a id="1__2" rel="nofollow"></a>1. 需求：</h2> <p>现在有一个Python的需求需要实现：</p> <p>就是实现连接一次数据库，就能够执行多条SQL语句，而且这个SQL语句是需要通过调用者将每一次执行的参数传入进来，组合成一条完整的SQL语句再去执行。</p> <p>经过初步研究，传入参数时，通过数组的形式，数组中的每一个元素则是一个元组tuple（因为SQL中需要填入的参数可能是多个，所以需要通过元组的形式传入）。</p> <p>比如SQL语句的形式为：<br /> basic_sql = ‘SELECT * FROM series se where se.body_part like “%{}%” and se.modality = “{}”’<br /> 在这条SQL中，有两个变量需要传入，分别用{}表示，一个是序列的body_part, 一个是序列的modality。准备传入的参数为：<br /> [(‘Chest’, ‘CT’), (‘Lung’, ‘MRI’), (‘Leg’, ‘DR’)]等。</p> <p>希望通过以下的格式化函数，将参数传入：<br /> SELECT * FROM series se where se.body_part like “%{}%” and se.modality = “{}”.format(param1, param2) 这样。</p> <h2> <a id="2__17" rel="nofollow"></a>2. 函数实现：</h2> <p>虽然看起来这个需求非常明确，也比较简单。但是实现起来，还是花费了我好长的时间。究其原因，主要的困惑就是如何能够将这个参数传入到SQL中，并且去执行SQL。</p> <h3> <a id="21__20" rel="nofollow"></a>2.1 思路一：</h3> <p>在基于需求中提到的那个解决思路，我希望是拼接字符串，将拼接后的整个字符串作为完整的SQL语句，然后执行生成结果。</p> <pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">execute_multi_sql</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> params_list<span class="token punctuation">)</span><span class="token punctuation">:</span> 	result_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>         <span class="token keyword">try</span><span class="token punctuation">:</span>             self<span class="token punctuation">.</span>_db_connection <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_connection_pool<span class="token punctuation">.</span>connection<span class="token punctuation">(</span><span class="token punctuation">)</span>             self<span class="token punctuation">.</span>_db_cursor <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_connection<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> 			<span class="token keyword">for</span> params <span class="token keyword">in</span> params_list<span class="token punctuation">:</span> 			    combined_sql <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> 			    combined_sql<span class="token punctuation">.</span>append<span class="token punctuation">(</span>sql<span class="token punctuation">)</span> 			    combined_sql<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'.format('</span><span class="token punctuation">)</span> 			    combined_sql<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">map</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> params<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 			    combined_sql<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">')'</span><span class="token punctuation">)</span> 			    combined_sql <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>combined_sql<span class="token punctuation">)</span> 			    logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string">"executing sql: %s"</span> <span class="token operator">%</span> combined_sql<span class="token punctuation">)</span> 			    self<span class="token punctuation">.</span>_db_cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>combined_sql<span class="token punctuation">)</span> 			    result <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span> 			    logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span>u<span class="token string">"SQL语句已经被执行, 结果是:\n %s"</span> <span class="token operator">%</span> <span class="token builtin">str</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span> 			    result_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>result<span class="token punctuation">)</span> 		<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>             logger<span class="token punctuation">.</span>exception<span class="token punctuation">(</span>u<span class="token string">"执行sql语句时，发生了错误: %s"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span>             <span class="token keyword">raise</span>         <span class="token keyword">finally</span><span class="token punctuation">:</span>             self<span class="token punctuation">.</span>_db_connection<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token keyword">return</span> result_list </code></pre> <p>但是在执行这个函数的时候，会报异常，异常说明是：tuple out of bounds.<br /> 以下是问题产生的原因：</p> <h3> <a id="22__51" rel="nofollow"></a>2.2 思路二：</h3> <p>通过google搜索，最终找到的解决方案是如下链接所示：<br /><strong>expanding tuples into arguments.</strong><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://stackoverflow.com/questions/1993727/expanding-tuples-into-arguments"  rel="nofollow">https://stackoverflow.com/questions/1993727/expanding-tuples-into-arguments</a></p> <pre><code class="prism language-python"><span class="token keyword">from</span> DBUtils<span class="token punctuation">.</span>PooledDB <span class="token keyword">import</span> PooledDB <span class="token keyword">import</span> logging <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>      <span class="token keyword">def</span> <span class="token function">execute_multi</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> params_list<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token keyword">if</span> <span class="token operator">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>params_list<span class="token punctuation">,</span> <span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">:</span>             <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>u<span class="token string">'传入参数要求是列表类型,请检查传入参数类型!'</span><span class="token punctuation">)</span>         result_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>         <span class="token keyword">try</span><span class="token punctuation">:</span>             self<span class="token punctuation">.</span>_db_connection <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_connection_pool<span class="token punctuation">.</span>connection<span class="token punctuation">(</span><span class="token punctuation">)</span>             self<span class="token punctuation">.</span>_db_cursor <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_connection<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token keyword">for</span> params <span class="token keyword">in</span> params_list<span class="token punctuation">:</span>                 <span class="token comment"># 将每一个元组中存的参数传入format中,替换sql中的变量值.</span>                 <span class="token comment"># 如果数组中的元素不是元组,则sql中只有一个变量需要替换,将参数直接替换.</span>                 <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>params<span class="token punctuation">,</span> <span class="token builtin">tuple</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                     combined_sql <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token operator">*</span>params<span class="token punctuation">)</span>                 <span class="token keyword">else</span><span class="token punctuation">:</span>                     combined_sql <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span>                  logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string">"executing sql: %s"</span> <span class="token operator">%</span> combined_sql<span class="token punctuation">)</span>                 self<span class="token punctuation">.</span>_db_cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>combined_sql<span class="token punctuation">)</span>                 result <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>                 logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span>u<span class="token string">"SQL语句已经被执行, 结果是:\n %s"</span> <span class="token operator">%</span> <span class="token builtin">str</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span>                 <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>                     result_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>result<span class="token punctuation">)</span>         <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>             logger<span class="token punctuation">.</span>exception<span class="token punctuation">(</span>u<span class="token string">"执行sql语句时，发生了错误: %s"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span>             <span class="token keyword">raise</span>         <span class="token keyword">finally</span><span class="token punctuation">:</span>             self<span class="token punctuation">.</span>_db_connection<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token keyword">return</span> result_list </code></pre> <p>这段代码中，最主要的修改就是关于处理参数的部分. 由于传入的参数是一个数组，数组中的每一个元素是一个tuple, tuple内的元素个数是由第2个参数sql中需要传入的参数个数对应的。如上述需求中提到的，传入的sql中需要补充两个参数值，分别是body_part和modality, 因此数组中每一个tuple的长度也是2.<br /> 这样通过*tuple的方式，可以依次取出tuple中的每一个元素作为变量，传入前面的sql语句中，组成一个完整的sql语句。然后再调用db.execute, 便可以获取到查询结果.</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-68347.htm">宠物领养协议书怎么写的（宠物领养协议书范本）</a></p>
+                                        <p>下一个：<a href="/news/article-69003.htm">长沙宠物领养吧 长沙宠物领养吧百度贴吧</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-free-node-subscribe.htm" title="2月24日最新V2rayU订阅 | 22.6M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点链接地址">2月24日最新V2rayU订阅 | 22.6M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-59827.htm" title="成都市免费领养狗狗地址查询（成都市免费领养狗狗地址查询电话）">成都市免费领养狗狗地址查询（成都市免费领养狗狗地址查询电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-free-high-speed-nodes.htm" title="3月5日最新V2rayU订阅 | 21.3M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点链接地址">3月5日最新V2rayU订阅 | 21.3M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-60972.htm" title="动物疫苗接种方法介绍（动物疫苗接种方法介绍视频）">动物疫苗接种方法介绍（动物疫苗接种方法介绍视频）</a></li>
+                        <li class="py-2"><a href="/news/article-54757.htm" title="宠物美容师的工作内容描述（宠物美容师的岗位职责）">宠物美容师的工作内容描述（宠物美容师的岗位职责）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-free-v2ray-subscribe.htm" title="2月20日最新V2rayU订阅 | 22.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点链接地址">2月20日最新V2rayU订阅 | 22.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-v2ray.htm" title="2月15日最新V2rayU订阅 | 18.4M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点链接地址">2月15日最新V2rayU订阅 | 18.4M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-62760.htm" title="开宠物食品店需要多少钱 开宠物食品店需要多少钱一个月">开宠物食品店需要多少钱 开宠物食品店需要多少钱一个月</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-node-subscribe.htm" title="2月17日最新V2rayU订阅 | 22.1M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点链接地址">2月17日最新V2rayU订阅 | 22.1M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-64592.htm" title="成都动物防疫站打针免费吗 成都动物防疫站打针免费吗现在">成都动物防疫站打针免费吗 成都动物防疫站打针免费吗现在</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                        <p>
+                                            <a href="/">首页</a> |
+                                            <a href="/free-node/">免费节点</a> |
+                                            <a href="/news/">新闻资讯</a> |
+                                            <a href="/about-us.htm">关于我们</a> |
+                                            <a href="/disclaimer.htm">免责申明</a> |
+                                            <a href="/privacy.htm">隐私申明</a> |
+                                            <a href="/sitemap.xml">网站地图</a>
+                                        </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
