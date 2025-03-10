@@ -1,0 +1,291 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-69657.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践</title>
+        <meta name="description" content="文章目录    简介 一、基于注解(@Scheduled) 二、基于接口（SchedulingConfigurer） 多线程定时任务 总结      简介 使用SpringBoot创建定时任务非常简单" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-69657.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/87b87ae6370f9720d6850114a043d600.webp" />
+        <meta property="og:release_date" content="2025-03-08T05:06:15" />
+    <meta property="og:updated_time" content="2025-03-08T05:06:15" />
+        <meta property="og:description" content="文章目录    简介 一、基于注解(@Scheduled) 二、基于接口（SchedulingConfigurer） 多线程定时任务 总结      简介 使用SpringBoot创建定时任务非常简单" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <div class="toc"> <h3>文章目录</h3> <ul> <li> <ul> <li><a href="#_4" rel="nofollow">简介</a></li> <li><a href="#Scheduled_11" rel="nofollow">一、基于注解(@Scheduled)</a></li> <li><a href="#SchedulingConfigurer_41" rel="nofollow">二、基于接口（SchedulingConfigurer）</a></li> <li><a href="#_143" rel="nofollow">多线程定时任务</a></li> <li><a href="#_170" rel="nofollow">总结</a></li> </ul> </li> </ul> </div> <hr/> <h2><a id="_4" rel="nofollow"></a>简介</h2> <p>使用SpringBoot创建定时任务非常简单，目前主要有以下三种创建方式：</p> <ul> <li>一、基于注解(@Scheduled)</li> <li>二、基于接口（SchedulingConfigurer）<br /> 前者相信大家都很熟悉，但是实际使用中我们往往想从数据库中读取指定时间来动态执行定时任务，这时候基于接口的定时任务就派上用场了。</li> <li>三、基于注解设定多线程定时任务</li> </ul> <h2><a id="Scheduled_11" rel="nofollow"></a>一、基于注解(@Scheduled)</h2> <p>使用SpringBoot基于注解来创建定时任务非常简单，只需几行代码便可完成。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Component</span><span class="token annotation punctuation">@Configuration</span><span class="token comment">//主要用于标记配置类,兼备component的效果</span><span class="token annotation punctuation">@EnableScheduling</span><span class="token comment">//开启定时任务</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">StaticScheduleTask</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Resource</span><span class="token class-name">RealTimeMonitorServiceImpl</span> realTimeMonitorService<span class="token punctuation">;</span><span class="token comment">//添加定时任务 4小时/4小时/4小时/</span><span class="token annotation punctuation">@Scheduled</span><span class="token punctuation">(</span>cron<span class="token operator">=</span><span class="token string">"0 0 0/4 * * ?"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token keyword">void</span><span class="token function">configureTasks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"执行静态定时任务时间: "</span><span class="token operator">+</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>cronExpression定义时间规则，Cron表达式由6或7个空格分隔的时间字段组成：秒 分钟 小时 日期 月份 星期 年（可选）</p> <table> <thead> <tr> <th>字段</th> <th>允许值</th> <th>允许的特殊字符</th> </tr> </thead> <tbody> <tr> <td>秒</td> <td>0-59</td> <td>, - * /</td> </tr> <tr> <td>分</td> <td>0-59</td> <td>, - * /</td> </tr> <tr> <td>小时</td> <td>0-23</td> <td>, - * /</td> </tr> <tr> <td>日期</td> <td>1-31</td> <td>, - * ? / L W C</td> </tr> <tr> <td>月份</td> <td>1-12</td> <td>, - * /</td> </tr> <tr> <td>星期</td> <td>1-7</td> <td>, - * ? / L C #</td> </tr> <tr> <td>年</td> <td>1970-2099</td> <td>, - * /</td> </tr> </tbody> </table> <h2><a id="SchedulingConfigurer_41" rel="nofollow"></a>二、基于接口（SchedulingConfigurer）</h2> <p>1.Pom配置</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.0.4.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--添加Web依赖 --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--添加MySql依赖 --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--添加Mybatis依赖 配置mybatis的一些初始化的东西--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.mybatis.spring.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mybatis-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.3.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!-- 添加mybatis依赖 --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.mybatis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mybatis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>3.4.5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>compile<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span></code></pre> <p>2.添加数据库记录, 开启本地数据库mysql，随便打开查询窗口，然后执行脚本内容，如下</p> <pre><code class="prism language-sql"><span class="token keyword">DROP</span><span class="token keyword">DATABASE</span><span class="token keyword">IF</span><span class="token keyword">EXISTS</span><span class="token identifier"><span class="token punctuation">`</span>socks<span class="token punctuation">`</span></span><span class="token punctuation">;</span><span class="token keyword">CREATE</span><span class="token keyword">DATABASE</span><span class="token identifier"><span class="token punctuation">`</span>socks<span class="token punctuation">`</span></span><span class="token punctuation">;</span><span class="token keyword">USE</span><span class="token identifier"><span class="token punctuation">`</span>SOCKS<span class="token punctuation">`</span></span><span class="token punctuation">;</span><span class="token keyword">DROP</span><span class="token keyword">TABLE</span><span class="token keyword">IF</span><span class="token keyword">EXISTS</span><span class="token identifier"><span class="token punctuation">`</span>cron<span class="token punctuation">`</span></span><span class="token punctuation">;</span><span class="token keyword">CREATE</span><span class="token keyword">TABLE</span><span class="token identifier"><span class="token punctuation">`</span>cron<span class="token punctuation">`</span></span><span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>cron_id<span class="token punctuation">`</span></span><span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token operator">NOT</span><span class="token boolean">NULL</span><span class="token keyword">PRIMARY</span><span class="token keyword">KEY</span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">`</span>cron<span class="token punctuation">`</span></span><span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token operator">NOT</span><span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">INSERT</span><span class="token keyword">INTO</span><span class="token identifier"><span class="token punctuation">`</span>cron<span class="token punctuation">`</span></span><span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">'0/5 * * * * ?'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>数据库截图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220822/e56708d0eb4b67b5d840192231f8f9d0.jpg" alt="Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践"><br /> 3.Application.yml 配置</p> <pre><code class="prism language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span><span class="token key atrule">datasource</span><span class="token punctuation">:</span><span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/socks<span class="token key atrule">username</span><span class="token punctuation">:</span> root<span class="token key atrule">password</span><span class="token punctuation">:</span><span class="token number">123456</span></code></pre> <p>4.创建定时器<br /> 数据库准备好数据之后，我们编写定时任务，注意这里添加的是TriggerTask，目的是循环读取我们在数据库设置好的执行周期，以及执行相关定时任务的内容。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Component</span><span class="token annotation punctuation">@Configuration</span><span class="token comment">//1.主要用于标记配置类，兼备Component的效果。</span><span class="token annotation punctuation">@EnableScheduling</span><span class="token comment">// 2.开启定时任务</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">DynamicScheduleTask</span><span class="token keyword">implements</span><span class="token class-name">SchedulingConfigurer</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Mapper</span><span class="token keyword">public</span><span class="token keyword">interface</span><span class="token class-name">CronMapper</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"select cron from cron limit 1"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">getCron</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@Autowired</span><span class="token comment">//注入mapper</span><span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">"all"</span><span class="token punctuation">)</span><span class="token class-name">CronMapper</span> cronMapper<span class="token punctuation">;</span><span class="token comment">/**      * 执行定时任务.      */</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">configureTasks</span><span class="token punctuation">(</span><span class="token class-name">ScheduledTaskRegistrar</span> taskRegistrar<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>          taskRegistrar<span class="token punctuation">.</span><span class="token function">addTriggerTask</span><span class="token punctuation">(</span><span class="token comment">//1.添加任务内容(Runnable)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"执行动态定时任务: "</span><span class="token operator">+</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocalTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//2.设置执行周期(Trigger)</span>                 triggerContext<span class="token operator">-&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">//2.1 从数据库获取执行周期</span><span class="token class-name">String</span> cron<span class="token operator">=</span> cronMapper<span class="token punctuation">.</span><span class="token function">getCron</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//2.2 合法性校验.</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>cron<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// Omitted Code ..</span><span class="token punctuation">}</span><span class="token comment">//2.3 返回执行周期(Date)</span><span class="token keyword">return</span><span class="token keyword">new</span><span class="token class-name">CronTrigger</span><span class="token punctuation">(</span>cron<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextExecutionTime</span><span class="token punctuation">(</span>triggerContext<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>5.测试<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220822/eab21f708c0cd37717202da8698cf899.jpg" alt="Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践"></p> <h2><a id="_143" rel="nofollow"></a>多线程定时任务</h2> <p>基于注解设定多线程定时任务</p> <pre><code class="prism language-java"><span class="token comment">//@Component注解用于对那些比较中立的类进行注释；</span><span class="token comment">//相对与在持久层、业务层和控制层分别采用 @Repository、@Service 和 @Controller 对分层中的类进行注释</span><span class="token annotation punctuation">@Component</span><span class="token annotation punctuation">@EnableScheduling</span><span class="token comment">// 1.开启定时任务</span><span class="token annotation punctuation">@EnableAsync</span><span class="token comment">// 2.开启多线程</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">MultithreadScheduleTask</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Async</span><span class="token annotation punctuation">@Scheduled</span><span class="token punctuation">(</span>fixedDelay<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token comment">//间隔1秒</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">InterruptedException</span><span class="token punctuation">{<!-- --></span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第一个定时任务开始 : "</span><span class="token operator">+</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocalTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\r\n线程 : "</span><span class="token operator">+</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@Async</span><span class="token annotation punctuation">@Scheduled</span><span class="token punctuation">(</span>fixedDelay<span class="token operator">=</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">second</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第二个定时任务开始 : "</span><span class="token operator">+</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocalTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\r\n线程 : "</span><span class="token operator">+</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220822/a69b5be0f5ee6fd456f42771cdd5540b.jpg" alt="Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践"></p> <h2><a id="_170" rel="nofollow"></a>总结</h2> <p>其他： https://github.com/mmzsblog/springboot-schedule</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69003.htm">长沙宠物领养吧 长沙宠物领养吧百度贴吧</a></p>
+                                        <p>下一个：<a href="/news/article-69658.htm">宠物领养协议书范本最新下载图片大全（宠物的领养协议是有法律保护的吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-v2ray.htm" title="2月15日最新V2rayU订阅 | 18.4M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点链接地址">2月15日最新V2rayU订阅 | 18.4M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-69658.htm" title="宠物领养协议书范本最新下载图片大全（宠物的领养协议是有法律保护的吗）">宠物领养协议书范本最新下载图片大全（宠物的领养协议是有法律保护的吗）</a></li>
+                        <li class="py-2"><a href="/news/article-52581.htm" title="领养宠物免费的地方在哪里可以找到（免费领养宠物店在哪里）">领养宠物免费的地方在哪里可以找到（免费领养宠物店在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-54757.htm" title="宠物美容师的工作内容描述（宠物美容师的岗位职责）">宠物美容师的工作内容描述（宠物美容师的岗位职责）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-node-share.htm" title="2月13日最新V2rayU订阅 | 22.1M/S|2025年V2ray/SSR/Shadowrocket/Clash免费节点链接地址">2月13日最新V2rayU订阅 | 22.1M/S|2025年V2ray/SSR/Shadowrocket/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-free-node-subscribe-links.htm" title="2月19日最新V2rayU订阅 | 20.5M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点链接地址">2月19日最新V2rayU订阅 | 20.5M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50721.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-node-subscribe.htm" title="2月17日最新V2rayU订阅 | 22.1M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点链接地址">2月17日最新V2rayU订阅 | 22.1M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70962.htm" title="宠物品牌排行前十名（知名宠物品牌）">宠物品牌排行前十名（知名宠物品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-62171.htm" title="ZooKeeper的java客户端api的监听功能代码示范">ZooKeeper的java客户端api的监听功能代码示范</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                        <p>
+                                            <a href="/">首页</a> |
+                                            <a href="/free-node/">免费节点</a> |
+                                            <a href="/news/">新闻资讯</a> |
+                                            <a href="/about-us.htm">关于我们</a> |
+                                            <a href="/disclaimer.htm">免责申明</a> |
+                                            <a href="/privacy.htm">隐私申明</a> |
+                                            <a href="/sitemap.xml">网站地图</a>
+                                        </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
