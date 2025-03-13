@@ -1,0 +1,291 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-72277.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>6-10java8中关于接口的新特性</title>
+        <meta name="description" content="Java 8中，你可以为接口添加静态方法和默认方法。从技术角度来说，这是完全合法的，只是它看起来违反了接口作为一个抽象定义的理念。   静态方法：使用static关键字修饰。可以通过接口直接调用静态方" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-72277.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="6-10java8中关于接口的新特性" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/40f84f3b520503baeeb80bfb70c234c5.webp" />
+        <meta property="og:release_date" content="2025-03-12T06:08:35" />
+    <meta property="og:updated_time" content="2025-03-12T06:08:35" />
+        <meta property="og:description" content="Java 8中，你可以为接口添加静态方法和默认方法。从技术角度来说，这是完全合法的，只是它看起来违反了接口作为一个抽象定义的理念。   静态方法：使用static关键字修饰。可以通过接口直接调用静态方" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="6-10java8中关于接口的新特性">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>6-10java8中关于接口的新特性</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>Java 8中，你可以为接口添加<strong>静态方法</strong>和<strong>默认方法</strong>。从技术角度来说，这是完全合法的，只是它看起来违反了接口作为一个抽象定义的理念。</p> </blockquote> <blockquote> <p>静态方法：使用<code>static</code>关键字修饰。<code>可以通过接口直接调用静态方法</code>，并执行其方法体。我们经常在相互一起使用的类中使用静态方法。你可以在标准库中找到像Collection/Collections或者Path/Paths这样成对的接口和类。</p> </blockquote> <blockquote> <p>默认方法：默认方法使用<code>default</code>关键字修饰。可以通过实现类对象来调用。我们在已有的接口中提供新方法的同时，还保持了与旧版本代码的兼容性。比如：java 8 API中对Collection、List、Comparator等接口提供了丰富的默认方法。</p> </blockquote> <h4> <a id="JDK8_6" rel="nofollow"></a>JDK8:除了全局常量和抽象方法之外，还可以定义静态方法、默认方法(略)</h4> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">CompareA</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//静态方法</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">method1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CompareA:西安"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//默认方法</span>     <span class="token keyword">public</span> <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">method2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CompareA:深圳"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CompareA:杭州"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">CompareB</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CompareB：上海"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SuperClass</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"SuperClass:北京"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <p>知识点 1：接口中定义的静态方法，只能通过接口来调用。<br /> 知识点 2：通过实现类的对象，可以调用接口中的默认方法。<br /> 如果实现类重写了接口中的默认方法，调用时，仍然调用的是重写以后的方法<br /> 知识点 3：如果子类(或实现类)继承的父类和实现的接口中声明了同名同参数的默认方法，那么子类在没有重写此方法的情况下，默认调用的是父类中的同名同参数的方法。–&gt;类优先原则<br /> 知识点 4：如果实现类实现了多个接口，而这多个接口中定义了同名同参数的默认方法，那么在实现类没有重写此方法的情况下，报错。–&gt;接口冲突。<br /> 这就需要我们必须在实现类中重写此方法</p> <h4> <a id="subclasstest_49" rel="nofollow"></a>subclasstest类</h4> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SubClassTest</span> <span class="token punctuation">{<!-- --></span>      <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">SubClass</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//		s.method1();</span> <span class="token comment">//		SubClass.method1();</span> <span class="token comment">//		知识点 1：接口中定义的静态方法，只能通过接口来调用。</span>         <span class="token class-name">CompareA</span><span class="token punctuation">.</span><span class="token function">method1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//		知识点 2：通过实现类的对象，可以调用接口中的默认方法。</span> <span class="token comment">//		如果实现类重写了接口中的默认方法，调用时，仍然调用的是重写以后的方法</span>         s<span class="token punctuation">.</span><span class="token function">method2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//		知识点 3：如果子类(或实现类)继承的父类和实现的接口中声明了同名同参数的默认方法，</span> <span class="token comment">//		那么子类在没有重写此方法的情况下，默认调用的是父类中的同名同参数的方法。--&gt;类优先原则</span> <span class="token comment">//		知识点 4：如果实现类实现了多个接口，而这多个接口中定义了同名同参数的默认方法，</span> <span class="token comment">//		那么在实现类没有重写此方法的情况下，报错。--&gt;接口冲突。</span> <span class="token comment">//		这就需要我们必须在实现类中重写此方法</span>         s<span class="token punctuation">.</span><span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token keyword">class</span> <span class="token class-name">SubClass</span> <span class="token keyword">extends</span> <span class="token class-name">SuperClass</span> <span class="token keyword">implements</span> <span class="token class-name">CompareA</span><span class="token punctuation">,</span><span class="token class-name">CompareB</span><span class="token punctuation">{<!-- --></span>      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">method2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"SubClass：上海"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"SubClass：深圳"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//	知识点 5：如何在子类(或实现类)的方法中调用父类、接口中被重写的方法</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//调用自己定义的重写的方法</span>         <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//调用的是父类中声明的</span> <span class="token comment">//		调用接口中的默认方法</span>         <span class="token class-name">CompareA</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token class-name">CompareB</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">method3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <p>输出结果：</p> <pre><code class="prism language-java"><span class="token class-name">CompareA</span><span class="token operator">:</span>西安 <span class="token class-name">SubClass</span>：上海 <span class="token class-name">SubClass</span>：深圳 </code></pre> <hr/> <p>若一个接口中定义了一个默认方法，而另外一个接口中也定义了一个同名同参数的方法（不管此方法是否是默认方法），在实现类同时实现了这两个接口时，会出现：接口冲突。</p> <blockquote> <p>解决办法：实现类必须覆盖接口中同名同参数的方法，来解决冲突。</p> </blockquote> <p>若一个接口中定义了一个默认方法，而父类中也定义了一个同名同参数的非抽象方法，则不会出现冲突问题。因为此时遵守：类优先原则。接口中具有相同名称和参数的默认方法会被忽略。</p> <h3> <a id="_104" rel="nofollow"></a>练习：接口冲突的解决办法</h3> <pre><code class="prism language-java"><span class="token comment">/*  * 练习：接口冲突的解决方式  */</span> <span class="token keyword">interface</span> <span class="token class-name">Filial</span> <span class="token punctuation">{<!-- --></span><span class="token comment">// 孝顺的</span> 	<span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">help</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"老妈，我来救你了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span>  <span class="token keyword">interface</span> <span class="token class-name">Spoony</span> <span class="token punctuation">{<!-- --></span><span class="token comment">// 痴情的</span> 	<span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">help</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"媳妇，别怕，我来了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span>  <span class="token keyword">class</span> <span class="token class-name">Father</span><span class="token punctuation">{<!-- --></span> 	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">help</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"儿子，救我媳妇！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span>  <span class="token keyword">class</span> <span class="token class-name">Man</span> <span class="token keyword">extends</span> <span class="token class-name">Father</span> <span class="token keyword">implements</span> <span class="token class-name">Filial</span><span class="token punctuation">,</span> <span class="token class-name">Spoony</span> <span class="token punctuation">{<!-- --></span>  	<span class="token annotation punctuation">@Override</span> 	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">help</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我该就谁呢？"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		<span class="token class-name">Filial</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">help</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		<span class="token class-name">Spoony</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">help</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span> 	 <span class="token punctuation">}</span>  </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71631.htm">青岛南京路动物防疫站宠物医院在哪里（青岛市南京路动物防疫站）</a></p>
+                                        <p>下一个：<a href="/news/article-72279.htm">南宁sat培训哪里好(sat考场哪个好)</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-51008.htm" title="CentOS 7.6环境设置Redis开机自启动">CentOS 7.6环境设置Redis开机自启动</a></li>
+                        <li class="py-2"><a href="/news/article-72949.htm" title="武汉哪家宠物医院收费合理（武汉不坑人的宠物医院）">武汉哪家宠物医院收费合理（武汉不坑人的宠物医院）</a></li>
+                        <li class="py-2"><a href="/news/article-68347.htm" title="宠物领养协议书怎么写的（宠物领养协议书范本）">宠物领养协议书怎么写的（宠物领养协议书范本）</a></li>
+                        <li class="py-2"><a href="/news/article-60973.htm" title="动物医院参观有感怎么写 动物医院参观有感怎么写作文">动物医院参观有感怎么写 动物医院参观有感怎么写作文</a></li>
+                        <li class="py-2"><a href="/news/article-59826.htm" title="/usr/local/kafka/kafka_2.13-2.7.1/bin/kafka-run-class.sh: 第 318 行:exec: java: 未找到 问题已解决">/usr/local/kafka/kafka_2.13-2.7.1/bin/kafka-run-class.sh: 第 318 行:exec: java: 未找到 问题已解决</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-free-v2ray.htm" title="2月22日最新V2rayU订阅 | 22.9M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点链接地址">2月22日最新V2rayU订阅 | 22.9M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-v2ray.htm" title="3月6日最新V2rayU订阅 | 18.8M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点链接地址">3月6日最新V2rayU订阅 | 18.8M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-72279.htm" title="南宁sat培训哪里好(sat考场哪个好)">南宁sat培训哪里好(sat考场哪个好)</a></li>
+                        <li class="py-2"><a href="/news/article-70326.htm" title="Golang-Channel原理解析">Golang-Channel原理解析</a></li>
+                        <li class="py-2"><a href="/news/article-60399.htm" title="C语言实现随机抽签">C语言实现随机抽签</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                        <p>
+                                            <a href="/">首页</a> |
+                                            <a href="/free-node/">免费节点</a> |
+                                            <a href="/news/">新闻资讯</a> |
+                                            <a href="/about-us.htm">关于我们</a> |
+                                            <a href="/disclaimer.htm">免责申明</a> |
+                                            <a href="/privacy.htm">隐私申明</a> |
+                                            <a href="/sitemap.xml">网站地图</a>
+                                        </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
