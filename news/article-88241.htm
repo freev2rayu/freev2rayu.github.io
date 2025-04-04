@@ -1,0 +1,293 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-88241.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vue变更v-for列表多个项目的颜色和选择项目</title>
+        <meta name="description" content="变更v-for遍历的列表的颜色看似简单，但是细细思考，你会发现一个问题，让列表中的某一个进行变换是很简单的，但是如何对根据自己选择的多个进行变更颜色呢？为了实现这个目的，你得确定选择的是哪一项，如果选" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-88241.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="vue变更v-for列表多个项目的颜色和选择项目" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/18dc662a53b11662f9e66a571df64ca0.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:08:37" />
+    <meta property="og:updated_time" content="2025-04-04T09:08:37" />
+        <meta property="og:description" content="变更v-for遍历的列表的颜色看似简单，但是细细思考，你会发现一个问题，让列表中的某一个进行变换是很简单的，但是如何对根据自己选择的多个进行变更颜色呢？为了实现这个目的，你得确定选择的是哪一项，如果选" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue变更v-for列表多个项目的颜色和选择项目">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>vue变更v-for列表多个项目的颜色和选择项目</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>变更v-for遍历的列表的颜色看似简单，但是细细思考，你会发现一个问题，让列表中的某一个进行变换是很简单的，但是如何对根据自己选择的多个进行变更颜色呢？为了实现这个目的，你得确定选择的是哪一项，如果选择多个，应该有哪些下标的列表是需要变色的等等需要考虑的因素。</p> <p>本文章主要以实现变更颜色为主，也有涉及一些选择选中的项目代码</p> </h1> <p>单个的变色很简单</p> <pre><code class="prism language-javascript"><span class="token comment">// 颜色样式</span><span class="token operator">&lt;</span>style<span class="token operator">&gt;</span><span class="token punctuation">.</span>red<span class="token punctuation">{<!-- --></span><span class="token literal-property property">color</span><span class="token operator">:</span> red<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> html<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span><span class="token comment">// v-for列表</span><span class="token operator">&lt;</span>li v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item,index in list"</span><span class="token operator">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"{red: changeColor == index}"</span> @click<span class="token operator">=</span><span class="token string">"change(index)"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>item<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> JavaScript<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">el</span><span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span><span class="token literal-property property">data</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">list</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'项目1'</span><span class="token punctuation">,</span><span class="token string">'项目2'</span><span class="token punctuation">,</span><span class="token string">'项目3'</span><span class="token punctuation">,</span><span class="token string">'项目4'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token literal-property property">changeColor</span><span class="token operator">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 变更颜色方法</span><span class="token function">change</span><span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>changeColor<span class="token operator">=</span>index<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> <pre><code class="prism language-bash">以上代码，也就是当属性变量和下标相等的时候会将对应的列表项变更颜色。 但是也只有一项。</code></pre> </h1> <pre><code class="prism language-bash">这个方式是我想出来的一个方法，当我说出来会发现，原来可以简单的实现这个要求</code></pre> <pre><code class="prism language-javascript"><span class="token comment">// 颜色样式</span><span class="token operator">&lt;</span>style<span class="token operator">&gt;</span><span class="token punctuation">.</span>red<span class="token punctuation">{<!-- --></span><span class="token literal-property property">color</span><span class="token operator">:</span> red<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> html<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span><span class="token comment">// v-for列表</span><span class="token operator">&lt;</span>li v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item,index in list"</span><span class="token operator">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"{red: changeColor[index].id == index}"</span> @click<span class="token operator">=</span><span class="token string">"change(index)"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>item<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> JavaScript<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">el</span><span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span><span class="token literal-property property">data</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">list</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// list集合</span><span class="token literal-property property">changeColor</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token comment">// 变更颜色</span><span class="token literal-property property">chooseList</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token comment">// 选择的列表</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 变更颜色方法</span><span class="token function">change</span><span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 判断是否有相同的数据，有移除，无添加 如果为0，被选中的列表没有选择的数据</span><span class="token keyword">let</span> sameIndex<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">// 判断list有无数据,然后增添选择的数据</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 将数据添加到被选择的列表</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>chooseList<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">// 变更选择的项目颜色</span><span class="token keyword">this</span><span class="token punctuation">.</span>changeChooseColor<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token operator">=</span> index<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 遍历list判断是否有相同的数据</span><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token keyword">in</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token keyword">this</span><span class="token punctuation">.</span>chooseList<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 移除已有并点击的项目</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                             sameIndex<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">// 取消变更选中的颜色</span><span class="token keyword">this</span><span class="token punctuation">.</span>changeChooseColor<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token comment">// 无数据添加</span><span class="token keyword">if</span><span class="token punctuation">(</span>sameIndex<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 将数据添加到被选择的列表</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>chooseList<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 变更选择的项目颜色</span><span class="token keyword">this</span><span class="token punctuation">.</span>changeChooseColor<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token operator">=</span> index<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">// 获取list集合</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 通过后端获取list集合信息或者自定义list</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"项目1"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"项目2"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"项目3"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"项目4"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 遍历list，根据list长度生成对应的改变颜色的集合</span><span class="token keyword">for</span><span class="token punctuation">(</span>int i<span class="token keyword">in</span> list<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 每一项都设定值为-1，让初始和项目列表下标不相等</span><span class="token keyword">this</span><span class="token punctuation">.</span>changeColor<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">id</span><span class="token operator">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 加载页面获取list集合并生成改变颜色的集合</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> </h1> <pre><code class="prism language-bash">以下为本人当前项目实现该功能的截图</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/4b1d085fa5a345839bba3fb909eb8900.jpg" alt="vue变更v-for列表多个项目的颜色和选择项目"></p> <pre><code class="prism language-bash">选择单个</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/76786660d718e8769e1fc57a1653187e.jpg" alt="vue变更v-for列表多个项目的颜色和选择项目"></p> <pre><code class="prism language-bash">选择多个</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dd6c54dd62240b34d6d0e6f29a4f22c4.jpg" alt="vue变更v-for列表多个项目的颜色和选择项目"></p> <pre><code class="prism language-bash">取消选择其中的一项</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e38dea6d6bac784541acd788653d757d.jpg" alt="vue变更v-for列表多个项目的颜色和选择项目"></p> </h1> <p>以上，为本人实现的变更v-for里多个列表项目的颜色</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87506.htm">动物疫苗属于什么行业（动物疫苗行业前景）</a></p>
+                                        <p>下一个：<a href="/news/article-88242.htm">领养协议书模板图片大全下载（领养协议书模板图片大全下载软件）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-81792.htm" title="docker修改默认存储位置">docker修改默认存储位置</a></li>
+                        <li class="py-2"><a href="/news/article-69657.htm" title="Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践">Spring Boot: 定时任务注解@Scheduled以及动态任务SchedulingConfigurer 实践</a></li>
+                        <li class="py-2"><a href="/news/article-69658.htm" title="宠物领养协议书范本最新下载图片大全（宠物的领养协议是有法律保护的吗）">宠物领养协议书范本最新下载图片大全（宠物的领养协议是有法律保护的吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-free-v2ray.htm" title="3月8日最新V2rayU订阅 | 18.2M/S|2025年SSR/Clash/V2ray/Shadowrocket免费节点链接地址">3月8日最新V2rayU订阅 | 18.2M/S|2025年SSR/Clash/V2ray/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66449.htm" title="宠物医生资格证书怎么考的（宠物医生怎么考取）">宠物医生资格证书怎么考的（宠物医生怎么考取）</a></li>
+                        <li class="py-2"><a href="/news/article-76974.htm" title="如何在MySQL查询的DATETIME字段中添加一天？">如何在MySQL查询的DATETIME字段中添加一天？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-free-v2ray.htm" title="4月4日最新V2rayU订阅 | 19.2M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点链接地址">4月4日最新V2rayU订阅 | 19.2M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-v2ray-subscribe.htm" title="3月9日最新V2rayU订阅 | 19.9M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点链接地址">3月9日最新V2rayU订阅 | 19.9M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70962.htm" title="宠物品牌排行前十名（知名宠物品牌）">宠物品牌排行前十名（知名宠物品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-85358.htm" title="Qt QComboBox之setEditable和currentTextChanged及其源码分析">Qt QComboBox之setEditable和currentTextChanged及其源码分析</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
