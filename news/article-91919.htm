@@ -1,0 +1,293 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-91919.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>正则表达式规则以及贪婪匹配与非贪婪匹配</title>
+        <meta name="description" content="原文地址：http://blog.csdn.net/jethai/article/details/52345368 1、什么是正则表达式的贪婪与非贪婪匹配 如：String str="abcaxc";" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-91919.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="正则表达式规则以及贪婪匹配与非贪婪匹配" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/b83577db6e3311cd353e437a7c26f5f6.webp" />
+        <meta property="og:release_date" content="2025-04-09T09:17:08" />
+    <meta property="og:updated_time" content="2025-04-09T09:17:08" />
+        <meta property="og:description" content="原文地址：http://blog.csdn.net/jethai/article/details/52345368 1、什么是正则表达式的贪婪与非贪婪匹配 如：String str="abcaxc";" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="正则表达式规则以及贪婪匹配与非贪婪匹配">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>正则表达式规则以及贪婪匹配与非贪婪匹配</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size:12px">原文地址：<a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/jethai/article/details/52345368"  rel="nofollow">http://blog.csdn.net/jethai/article/details/52345368</a></span></p> <p><span style="font-size:18px; color:#006600"><strong>1、什么是正则表达式的贪婪与非贪婪匹配</strong></span></p> <p><strong></strong>如：String str="abcaxc";</p> <p>　　　　Patter p="ab*c";</p> <p><strong>　　贪婪匹配：</strong>正则表达式一般趋向于最大长度匹配，也就是所谓的贪婪匹配。如上面使用模式p匹配字符串str，结果就是匹配到：<strong>abcaxc</strong>(ab*c)。</p> <p><strong>非贪婪匹配：</strong>就是匹配到结果就好，就少的匹配字符。如上面使用模式p匹配字符串str，结果就是匹配到：<strong>abc</strong>(ab*c)。</p> <p><span style="font-size:18px; color:#006600"><strong>2、编程中如何区分两种模式</strong></span></p> <p><strong><span style="color:#ff0000">默认是贪婪模式；在量词后面直接加上一个问号？就是非贪婪模式。</span></strong></p> <p>　　下面的都是量词：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {m,n}：m到n个</p> <p>　　　　　*：任意多个</p> <p>　　　　　+：一个到多个</p> <p>　　　　　？：0或一个</p> <p>demo代码：</p> <pre><code class="language-java">import java.util.regex.Matcher;  import java.util.regex.Pattern;    public class RegularTest {            public static void main(String[] arg){          String text="(content:\"rcpt to root\";pcre:\"word\";)";          String rule1="content:\".+\"";    //贪婪模式          String rule2="content:\".+?\"";    //非贪婪模式                    System.out.println("文本："+text);          System.out.println("贪婪模式："+rule1);          Pattern p1 =Pattern.compile(rule1);          Matcher m1 = p1.matcher(text);          while(m1.find()){              System.out.println("匹配结果："+m1.group(0));          }                    System.out.println("非贪婪模式："+rule2);          Pattern p2 =Pattern.compile(rule2);          Matcher m2 = p2.matcher(text);          while(m2.find()){              System.out.println("匹配结果："+m2.group(0));          }      }  }</code></pre> <p><span style="color:#FF0000"><strong>贪婪匹配：在满足匹配时，匹配尽可能长的字符串，默认情况下，采用贪婪匹配</strong></span></p> <div class="dp-highlighter bg_java"> <div class="bar"> <div class="tools"><strong>[java]</strong><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/jethai/article/details/52345368#"  class="ViewSource" title="view plain" rel="nofollow"> view plain</a><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/jethai/article/details/52345368#"  class="CopyToClipboard" title="copy" rel="nofollow"> copy</a></div> </div> <ol start="1" class="dp-j"> <li class="alt">string&nbsp;pattern1&nbsp;=&nbsp;@<span class="string">"a.*c"</span>;<span class="comment">//&nbsp;greedy&nbsp;match&nbsp;Regex&nbsp;regex&nbsp;=&nbsp;new&nbsp;Regex(pattern1);</span></li> <li>regex.Match(<span class="string">"abcabc"</span>);<span class="comment">//&nbsp;return&nbsp;"abcabc"</span></li> </ol> </div> <p><strong><span style="color:#FF0000">非贪婪匹配：在满足匹配时，匹配尽可能短的字符串，使用?来表示非贪婪匹配</span></strong></p> <div class="dp-highlighter bg_java"> <div class="bar"> <div class="tools"><strong>[java]</strong><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/jethai/article/details/52345368#"  class="ViewSource" title="view plain" rel="nofollow"> view plain</a><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/jethai/article/details/52345368#"  class="CopyToClipboard" title="copy" rel="nofollow"> copy</a></div> </div> <ol start="1" class="dp-j"> <li class="alt">string&nbsp;pattern1&nbsp;=&nbsp;@<span class="string">"a.*?c"</span>;<span class="comment">//&nbsp;non-greedy&nbsp;match&nbsp;Regex&nbsp;regex&nbsp;=&nbsp;new&nbsp;Regex(pattern1);</span></li> <li>regex.Match(<span class="string">"abcabc"</span>);<span class="comment">//&nbsp;return&nbsp;"abc"</span></li> </ol> </div> <p>几个常用的非贪婪匹配Pattern</p> <div class="dp-highlighter bg_java"> <div class="bar"> <div class="tools"><strong>[java]</strong><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/jethai/article/details/52345368#"  class="ViewSource" title="view plain" rel="nofollow"> view plain</a><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/jethai/article/details/52345368#"  class="CopyToClipboard" title="copy" rel="nofollow"> copy</a></div> </div> <ol start="1" class="dp-j"> <li class="alt">*?&nbsp;重复任意次，但尽可能少重复</li> <li>+?&nbsp;重复<span class="number">1</span>次或更多次，但尽可能少重复</li> <li class="alt">??&nbsp;重复<span class="number">0</span>次或<span class="number">1</span>次，但尽可能少重复</li> <li>{n,m}?&nbsp;重复n到m次，但尽可能少重复</li> <li class="alt">{n,}?&nbsp;重复n次以上，但尽可能少重复</li> </ol> </div> <p><span style="font-size:18px; color:#006600"><strong>3、正则表达式规则</strong></span></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 正则表达式的详细规则描述如下所示：</p> <p><a target="_blank" href="http://img.555519.xyz/uploads3/20220609/f389be9ee288371e962897991f2412bc.jpg" rel="nofollow" class="fancybox" data-fancybox-group="button"><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/f389be9ee288371e962897991f2412bc.jpg" alt="正则表达式规则以及贪婪匹配与非贪婪匹配" title="正则表达式.png"></a></p> <p><span style="color:#006600"><strong><br /></strong></span></p> <p><span style="color:#006600"><strong>注意：上述规则应该是标准的Unix正则规则，可能因为软件的不同可能会有所差别。比如之前在使用UltraEdit的正则搜索功能时，发现UltraEdit有自己的正则规则，和标准的Unix规则不太一样，比如在Unix中“.”（点）表示匹配除\n以外的任意字符，但是在UltraEdit中“?”（问号）才表示匹配\n以外的任意字符。</strong><span style="color:#000000">如果要了解UltraEdit详细的正则规则描述，可以从UltraEdit的主菜单中找到使用帮助菜单项，打开UltraEdit的帮助文档，在帮助文档中有详细的说明。</span></span></p> <p></p> <p>参考文章：</p> <p><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.cnblogs.com/xudong-bupt/p/3586889.html"  rel="nofollow">http://www.cnblogs.com/xudong-bupt/p/3586889.html</a></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-91219.htm">使用canvas制作验证码</a></p>
+                                        <p>下一个：<a href="/news/article-91921.htm">开一个宠物零食工厂赚钱吗 开一个宠物零食工厂赚钱吗知乎</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-83222.htm" title="宠物领养协议书范本 定期回访怎么写啊 宠物领养协议书范本 定期回访怎么写啊">宠物领养协议书范本 定期回访怎么写啊 宠物领养协议书范本 定期回访怎么写啊</a></li>
+                        <li class="py-2"><a href="/news/article-85357.htm" title="C++引用以及结构体">C++引用以及结构体</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-node-share-links.htm" title="3月12日最新V2rayU订阅 | 18.4M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点链接地址">3月12日最新V2rayU订阅 | 18.4M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-high-speed-nodes.htm" title="4月6日最新V2rayU订阅 | 18.7M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点链接地址">4月6日最新V2rayU订阅 | 18.7M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-subscribe-node.htm" title="3月4日最新V2rayU订阅 | 20.9M/S|2025年SSR/V2ray/Shadowrocket/Clash免费节点链接地址">3月4日最新V2rayU订阅 | 20.9M/S|2025年SSR/V2ray/Shadowrocket/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70329.htm" title="小型狗粮生产设备厂家（小型狗粮加工设备）">小型狗粮生产设备厂家（小型狗粮加工设备）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-v2ray-subscribe.htm" title="3月31日最新V2rayU订阅 | 20.8M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点链接地址">3月31日最新V2rayU订阅 | 20.8M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-v2ray-subscribe.htm" title="3月15日最新V2rayU订阅 | 22.3M/S|2025年V2ray/Clash/Shadowrocket/SSR免费节点链接地址">3月15日最新V2rayU订阅 | 22.3M/S|2025年V2ray/Clash/Shadowrocket/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-87506.htm" title="动物疫苗属于什么行业（动物疫苗行业前景）">动物疫苗属于什么行业（动物疫苗行业前景）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-subscribe-node.htm" title="4月11日最新V2rayU订阅 | 21.7M/S|2025年SSR/Clash/V2ray/Shadowrocket免费节点链接地址">4月11日最新V2rayU订阅 | 21.7M/S|2025年SSR/Clash/V2ray/Shadowrocket免费节点链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
