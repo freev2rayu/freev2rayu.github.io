@@ -1,0 +1,293 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-94913.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>设计模式之六大原则——接口隔离原则（ISP）</title>
+        <meta name="description" content="接口隔离原则 Interface Segregation Principle&nbsp;  定义：  客户端不应该依赖它不需要的接口 类间的依赖关系应该建立在最小的接口上  我们可以把这两个定义概括为" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-94913.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="设计模式之六大原则——接口隔离原则（ISP）" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20250202/7493949e768a9665e4a8e2af8723f3b0.webp" />
+        <meta property="og:release_date" content="2025-04-13T07:18:49" />
+    <meta property="og:updated_time" content="2025-04-13T07:18:49" />
+        <meta property="og:description" content="接口隔离原则 Interface Segregation Principle&nbsp;  定义：  客户端不应该依赖它不需要的接口 类间的依赖关系应该建立在最小的接口上  我们可以把这两个定义概括为" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="设计模式之六大原则——接口隔离原则（ISP）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>设计模式之六大原则——接口隔离原则（ISP）</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="V2ray X节点订阅官网" data-url="https://v2rayx.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <p>接口隔离原则 Interface Segregation Principle<strong>&nbsp;</strong></p> <p><strong><br /></strong></p> <p><strong>定义：</strong></p> <ul> <li>客户端不应该依赖它不需要的接口</li> <li>类间的依赖关系应该建立在最小的接口上</li> </ul> <p>我们可以把这两个定义概括为一句话：建立单一接口，不要建立臃肿庞大的接口。再通俗一点讲：接口尽量细化，同时接口中的方法尽量少。</p> <p>提供给每个模块的都应该是单一接口，提供给几个模块就应该有几个接口，而不是建立一个庞大的臃肿的接口，容纳所有的客户端访问。</p> <p>&nbsp;</p> <p>接口是我们设计时对外提供的契约，通过分散定义多个接口，可以预防未来变更的扩散，提高系统的灵活性和可维护性。</p> <p>&nbsp;</p> <p><strong>含义：</strong></p> <ul> <li>接口要尽量小</li> </ul> <p>这是接口隔离原则的核心定义，不出现臃肿的接口（Fat Interface），但是“小”是有限度的，首先就是不能违反单一职责原则。</p> <p><strong>根据接口隔离原则拆分接口时，首先必须满足单一职责原则。</strong></p> <ul> <li>接口要高内聚</li> </ul> <p>高内聚就是要提高接口、类、模块的处理能力，减少对外的交互。</p> <p>具体到接口隔离原则就是，要求在接口中尽量少公布public方法，接口是对外的承诺，承诺地越少对系统开发越有利，变更的风险也就越少，同时也有利于降低成本。</p> <ul> <li>定制服务</li> </ul> <p>定制服务就是单独为一个个体提供优良的服务。</p> <ul> <li>接口设计是有限度的</li> </ul> <p>接口的设计粒度越小，系统越灵活，这是不争的事实。但是，灵活的同时也带来了结构的复杂化，开发难度增加，可维护性降低，这不是一个项目或产品所期望看到的，所以接口设计一定要注意适度，这个度只能根据经验和常识判断，没有一个固化或可测量的标准。</p> </div> <p>转载于:https://www.cnblogs.com/muzongyan/archive/2010/08/04/1792528.html</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-94313.htm">猫咪3针疫苗一共多少元冬天打 猫咪3针疫苗一共多少元冬天打的</a></p>
+                                        <p>下一个：<a href="/news/article-94914.htm">宠物零食加工需要什么资质呢（宠物零食加工需要什么资质呢多少钱）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-93395.htm" title="C语言 模拟实现memcpy与memmove函数详解_C 语言">C语言 模拟实现memcpy与memmove函数详解_C 语言</a></li>
+                        <li class="py-2"><a href="/news/article-86794.htm" title="猫为什么不能打狂犬（猫为什么不能打狂犬疫苗针）">猫为什么不能打狂犬（猫为什么不能打狂犬疫苗针）</a></li>
+                        <li class="py-2"><a href="/news/article-68347.htm" title="宠物领养协议书怎么写的（宠物领养协议书范本）">宠物领养协议书怎么写的（宠物领养协议书范本）</a></li>
+                        <li class="py-2"><a href="/news/article-92629.htm" title="猫咪三针疫苗打完多久可以打狂犬病疫苗（猫咪三针疫苗打完多久可以洗澡）">猫咪三针疫苗打完多久可以打狂犬病疫苗（猫咪三针疫苗打完多久可以洗澡）</a></li>
+                        <li class="py-2"><a href="/news/article-81792.htm" title="docker修改默认存储位置">docker修改默认存储位置</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-node-share-links.htm" title="4月9日最新V2rayU订阅 | 18.4M/S|2025年Clash/SSR/V2ray/Shadowrocket免费节点链接地址">4月9日最新V2rayU订阅 | 18.4M/S|2025年Clash/SSR/V2ray/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-72277.htm" title="6-10java8中关于接口的新特性">6-10java8中关于接口的新特性</a></li>
+                        <li class="py-2"><a href="/news/article-82509.htm" title="victoriaMetrics之byteBuffer">victoriaMetrics之byteBuffer</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-8-free-v2ray-subscribe.htm" title="4月8日最新V2rayU订阅 | 22M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点链接地址">4月8日最新V2rayU订阅 | 22M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-96397.htm" title="1970年阴历四月二十七是什么星座女孩（1970年阴历四月二十七是什么星座女孩命运）">1970年阴历四月二十七是什么星座女孩（1970年阴历四月二十七是什么星座女孩命运）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                        <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
