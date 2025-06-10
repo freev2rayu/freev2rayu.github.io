@@ -1,4 +1,4 @@
-# 6月6日最新V2rayU订阅 | 20.6M/S|2025年V2ray/SSR/Clash/Shadowrocket免费节点链接地址  更新时间 2025-06-06 09:26:08
+# 6月10日最新V2rayU订阅 | 21.3M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点链接地址  更新时间 2025-06-10 08:53:57
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://freev2rayu.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://freev2rayu.github.io/uploads/2025/06/0-20250606.yaml
-- https://freev2rayu.github.io/uploads/2025/06/1-20250606.yaml
-- https://freev2rayu.github.io/uploads/2025/06/2-20250606.yaml
-- https://freev2rayu.github.io/uploads/2025/06/3-20250606.yaml
-- https://freev2rayu.github.io/uploads/2025/06/4-20250606.yaml
+- https://freev2rayu.github.io/uploads/2025/06/0-20250610.yaml
+- https://freev2rayu.github.io/uploads/2025/06/1-20250610.yaml
+- https://freev2rayu.github.io/uploads/2025/06/2-20250610.yaml
+- https://freev2rayu.github.io/uploads/2025/06/3-20250610.yaml
+- https://freev2rayu.github.io/uploads/2025/06/4-20250610.yaml
 
 ### V2ray订阅链接
 
-- https://freev2rayu.github.io/uploads/2025/06/0-20250606.txt
-- https://freev2rayu.github.io/uploads/2025/06/1-20250606.txt
-- https://freev2rayu.github.io/uploads/2025/06/2-20250606.txt
-- https://freev2rayu.github.io/uploads/2025/06/3-20250606.txt
-- https://freev2rayu.github.io/uploads/2025/06/4-20250606.txt
+- https://freev2rayu.github.io/uploads/2025/06/0-20250610.txt
+- https://freev2rayu.github.io/uploads/2025/06/1-20250610.txt
+- https://freev2rayu.github.io/uploads/2025/06/2-20250610.txt
+- https://freev2rayu.github.io/uploads/2025/06/3-20250610.txt
+- https://freev2rayu.github.io/uploads/2025/06/4-20250610.txt
 
 ### Sing-box订阅链接
 
-- https://freev2rayu.github.io/uploads/2025/06/20250606.json
+- https://freev2rayu.github.io/uploads/2025/06/20250610.json
 
 ## 更多clash节点订阅 ：
 
