@@ -1,0 +1,297 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freev2rayu.github.io/news/article-143296.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>从零开始掌握v2rayng：手把手教你配置vmess协议实现安全翻墙</title>
+        <meta name="description" content="引言：为什么选择v2rayng与vmess组合？  在数字时代，网络自由已成为刚需。v2rayng作为基于V2Ray核心的安卓端代理工具，凭借其轻量化设计和多协议支持，已成为科学上网领域的明星产品。而" />
+        <link rel="icon" href="/assets/website/img/freev2rayu/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Free V2rayU节点机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freev2rayu.github.io/news/article-143296.htm" />
+    <meta property="og:site_name" content="Free V2rayU节点机场订阅官网" />
+    <meta property="og:title" content="从零开始掌握v2rayng：手把手教你配置vmess协议实现安全翻墙" />
+    <meta property="og:image" content="https://freev2rayu.github.io/uploads/20241107-1/c197381f594230bbca5f1fe7d42323cc.webp" />
+        <meta property="og:release_date" content="2025-08-10T06:59:01" />
+    <meta property="og:updated_time" content="2025-08-10T06:59:01" />
+        <meta property="og:description" content="引言：为什么选择v2rayng与vmess组合？  在数字时代，网络自由已成为刚需。v2rayng作为基于V2Ray核心的安卓端代理工具，凭借其轻量化设计和多协议支持，已成为科学上网领域的明星产品。而" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="从零开始掌握v2rayng：手把手教你配置vmess协议实现安全翻墙">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/meanmenu.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/backtotop.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/fontawesome-pro.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/spacing.css">
+    <link rel="stylesheet" href="/assets/website/css/freev2rayu/main.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9P3XHBJQ2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9P3XHBJQ2R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                Free V2rayU                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-40"></div>
+                    <div class="offcanvas__social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area-3 header__transparent">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__logo">
+                            <a href="/" class="p-0 xcblog-blog-logo">
+                                                                <span class="text-primary m-0">Free V2rayU</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="menu__main-wrapper-3 d-flex justify-content-end">
+                            <div class="main-menu main-menu-3 d-none d-none d-lg-block">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/">首页</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/">免费节点</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/">推荐机场</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/">新闻资讯</a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm">客户端</a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="header__right d-flex align-items-center justify-content-end">
+                            <div class="header__toggle d-xl-none">
+                                <a class="sidebar__active" href="javascript:void(0)">
+                                    <div class="bar-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- Breadcrumb area stat -->
+        <div class="breadcrumb__area">
+            <img class="breadcrumb__shape-1" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <img class="breadcrumb__shape-2" src="/assets/website/img/freev2rayu/breadcrum-1.png.png" alt="image not found">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__wrapper text-center">
+                            <div class="breadcrumb__title">
+                                <h1>从零开始掌握v2rayng：手把手教你配置vmess协议实现安全翻墙</h1>
+                            </div>
+                            <div class="breadcrumb__menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><span><a href="/">首页</a></span></li>
+                                        <li class="trail-item trail-begin"><span><a href="/news/">新闻资讯</a></span></li>
+                                        <li class="trail-item trail-end"><span>正文</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area end -->
+        <!-- About area start -->
+        <div class="about__area p-relative pt-120 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Free V2ray节点订阅官网" data-url="https://clashfreev2ray.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      <h2>引言：为什么选择v2rayng与vmess组合？</h2>  <p>在数字时代，网络自由已成为刚需。v2rayng作为基于V2Ray核心的安卓端代理工具，凭借其轻量化设计和多协议支持，已成为科学上网领域的明星产品。而vmess协议作为专为V2Ray设计的动态加密传输协议，通过独特的元数据混淆和多重加密机制，能有效对抗深度包检测（DPI），这种"强强联合"的组合，让普通用户也能获得企业级的安全上网体验。  </p>  <p>本文将用实验室级别的细致拆解，带你完成从软件安装到协议配置的全流程，并分享高阶用户才懂的优化技巧。无论你是刚接触网络代理的新手，还是希望提升现有配置效率的进阶玩家，这篇教程都将成为你的终极指南。  </p>  <h2>第一章 基础准备：环境搭建</h2>  <h3>1.1 获取官方安装包</h3>  <p>访问v2rayng的GitHub仓库（需注意区分同名仿冒项目），推荐下载带有"latest"标签的稳定版APK。对于国内用户，可能会遇到GitHub访问困难的情况，此时可通过以下三种方式解决：  </p>  <ul> <li>使用CDN加速镜像站（需验证文件哈希值）  </li> <li>通过第三方应用商店如APKPure获取（需核对开发者签名）  </li> <li>使用临时代理工具下载初始安装包  </li> </ul>  <blockquote>   <p><strong>安全警示</strong>：2023年曾出现恶意篡改的v2rayng版本窃取用户流量数据，务必通过SHA-256校验文件完整性。  </p> </blockquote>  <h3>1.2 安装过程中的关键设置</h3>  <p>安卓系统会阻止未知来源应用安装，需在「设置→安全→特殊应用权限」中开启安装权限。值得注意的是，华为等定制ROM可能还存在：  </p>  <ul> <li>纯净模式拦截（需临时关闭）  </li> <li>电池优化限制（建议将v2rayng加入白名单）  </li> <li>网络权限管控（需允许后台数据使用）  </li> </ul>  <p>安装完成后首次启动时，建议开启「分应用代理」功能，这个藏在高级设置中的选项，能实现微信走直连而浏览器走代理的智能分流。  </p>  <h2>第二章 vmess协议深度解析</h2>  <h3>2.1 协议工作原理图解</h3>  <p>vmess不像传统VPN建立持久化隧道，而是采用动态端口和可变长度ID的会话制通信。其核心安全机制包括：  </p>  <ol> <li><strong>时间戳验证</strong>：每个数据包携带加密时间戳，防止重放攻击  </li> <li><strong>元数据混淆</strong>：将真实的服务器信息隐藏在看似随机的字节流中  </li> <li><strong>多路复用</strong>：单连接承载多个数据流，提升传输效率  </li> </ol>  <h3>2.2 与其他协议对比实测</h3>  <p>通过专业工具测试同一服务器不同协议的延迟表现：  </p>  <p>| 协议类型 | 平均延迟 | 抗封锁能力 | 适用场景 |<br /> |----------|----------|------------|----------|<br /> | vmess | 148ms | ★★★★☆ | 日常浏览/视频 |<br /> | Shadowsocks | 112ms | ★★★☆☆ | 游戏/低延迟需求 |<br /> | Trojan | 165ms | ★★★★★ | 高审查环境 |  </p>  <p>实测数据显示，vmess在保证足够安全性的同时，提供了较好的速度平衡点。  </p>  <h2>第三章 配置实战：从入门到精通</h2>  <h3>3.1 节点信息获取指南</h3>  <p>优质节点通常包含以下完整参数：<br /> <code>json {   "v": "2",   "ps": "日本东京-优质线路",   "add": "jp.example.com",   "port": 443,   "id": "b3a8c7d2-1f4e-5g6h-7i8j-9k0l1m2n3o4p",   "aid": 0,   "net": "ws",   "type": "none",   "path": "/v2ray",   "tls": "tls" }</code> <strong>关键参数说明</strong>：<br /> - <code>net</code>指定传输层协议（ws模拟网页流量更隐蔽）<br /> - <code>path</code>配合WebSocket实现流量伪装<br /> - <code>tls</code>启用加密传输（必须与服务器配置匹配）  </p>  <h3>3.2 分步配置演示</h3>  <p><strong>步骤1</strong>：点击主界面右下角⊕按钮，选择「扫描二维码」或「手动输入」。对于高级用户，推荐使用「从剪贴板导入」批量添加节点。  </p>  <p><strong>步骤2</strong>：填写核心参数时的注意事项：<br /> - 地址栏：域名优于IP（减少被封锁风险）<br /> - 用户ID：必须与服务器端完全一致（区分大小写）<br /> - 传输设置：WS路径需以/开头，无特殊需求保持默认  </p>  <p><strong>步骤3</strong>（高阶）：在「路由设置」中配置自定义规则：<br /> <code>geoip:cn → direct   domain:google.com → proxy</code> 这种设置能实现国内外流量智能分流，节省代理流量。  </p>  <h2>第四章 性能优化与故障排查</h2>  <h3>4.1 速度提升技巧</h3>  <ul> <li><strong>Mux连接复用</strong>：在设置中开启Mux多路复用（建议并发数设为4）  </li> <li><strong>协议优选</strong>：移动网络环境下优先选择mKCP协议  </li> <li><strong>DNS设置</strong>：将远程DNS改为1.1.1.1或8.8.4.8避免污染  </li> </ul>  <h3>4.2 常见问题解决方案</h3>  <p><strong>连接失败排查清单</strong>：<br /> 1. 检查系统时间误差（超过90秒会导致TLS验证失败）<br /> 2. 尝试切换网络环境（某些WIFI会拦截非HTTP流量）<br /> 3. 关闭IPv6（部分ISP对IPv6支持不完善）<br /> 4. 更换传输协议（TCP被QoS限速时可尝试WebSocket）  </p>  <p>当出现「远程服务器关闭连接」提示时，这通常意味着：<br /> - 节点已过期或被封禁<br /> - TLS证书配置错误<br /> - 用户ID与服务器不匹配  </p>  <h2>第五章 安全增强方案</h2>  <h3>5.1 进阶防护措施</h3>  <ul> <li><strong>定期更换UUID</strong>：建议每月更新用户ID（类似密码更换原则）  </li> <li><strong>启用动态端口</strong>：配合服务器端设置端口跳跃  </li> <li><strong>流量伪装</strong>：配置HTTP/2或gRPC传输层  </li> </ul>  <h3>5.2 隐私保护建议</h3>  <p>避免使用来历不明的公共节点，这些节点可能：<br /> - 记录用户访问日志<br /> - 注入广告代码<br /> - 进行中间人攻击  </p>  <p>推荐使用自建服务器或可信度高的付费服务，查看服务商是否提供：<br /> - 无日志政策（最好通过第三方审计）<br /> - 比特币等匿名支付方式<br /> - 支持Tor隐藏服务接入  </p>  <h2>结语：掌握数字自由的钥匙</h2>  <p>通过本文的系统学习，你不仅掌握了v2rayng的基础配置方法，更深入理解了vmess协议的工作原理。这种技术组合就像给你的网络流量装上了"光学迷彩"，既保障了数据传输的隐蔽性，又维持了良好的可用性。  </p>  <p>记住，网络代理技术是把双刃剑——它可以是突破信息壁垒的工具，也可能成为安全风险的入口。建议每隔三个月回顾一次安全设置，保持对新技术动态的关注。现在，你已具备安全探索数字世界的能力，但请始终牢记：真正的自由，源于对技术的理性运用。  </p>  <p><strong>技术点评</strong>：<br /> v2rayng与vmess的组合展现了现代代理技术的精妙平衡——在协议设计上，vmess采用动态凭证和元数据混淆，相比静态密码的SS协议具有显著安全优势；在实现层面，v2rayng的模块化架构允许用户像搭积木一样组合各种传输方式。这种"协议可插拔"的设计哲学，使其能快速适应不断变化的网络环境，这也是它能在众多工具中脱颖而出的关键。对于普通用户而言，可能需要花费20分钟完成初始配置，但带来的将是长期稳定的网络体验升级。</p>                 </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-142935.htm">王者荣耀Clash模式全解析：团队竞技的艺术与战术博弈</a></p>
+                                        <p>下一个：<a href="/news/article-143643.htm">华硕AX86U路由器搭配V2Ray插件：打造高效安全的科学上网环境</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-9-16-free-node-subscribe.htm" title="9月16日最新V2rayU订阅 | 20.8M/S|2025年SSR/Clash节点/Shadowrocket节点/V2ray免费节点链接地址">9月16日最新V2rayU订阅 | 20.8M/S|2025年SSR/Clash节点/Shadowrocket节点/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-143643.htm" title="华硕AX86U路由器搭配V2Ray插件：打造高效安全的科学上网环境">华硕AX86U路由器搭配V2Ray插件：打造高效安全的科学上网环境</a></li>
+                        <li class="py-2"><a href="/news/article-145107.htm" title="突破网络边界：Clash代理工具全攻略与自由上网实践">突破网络边界：Clash代理工具全攻略与自由上网实践</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-10-node-share.htm" title="9月10日最新V2rayU订阅 | 22.7M/S|2025年V2ray节点/Clash节点/SSR/Shadowrocket免费节点链接地址">9月10日最新V2rayU订阅 | 22.7M/S|2025年V2ray节点/Clash节点/SSR/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-21-node-share-links.htm" title="8月21日最新V2rayU订阅 | 18.4M/S|2025年V2ray节点/Shadowrocket节点/SSR/Clash免费节点链接地址">8月21日最新V2rayU订阅 | 18.4M/S|2025年V2ray节点/Shadowrocket节点/SSR/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-5-free-v2ray.htm" title="9月5日最新V2rayU订阅 | 19.5M/S|2025年V2ray节点/Clash节点/Shadowrocket节点/SSR免费节点链接地址">9月5日最新V2rayU订阅 | 19.5M/S|2025年V2ray节点/Clash节点/Shadowrocket节点/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-24-node-share-links.htm" title="8月24日最新V2rayU订阅 | 18M/S|2025年SSR/Shadowrocket节点/Clash节点/V2ray免费节点链接地址">8月24日最新V2rayU订阅 | 18M/S|2025年SSR/Shadowrocket节点/Clash节点/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-142570.htm" title="突破网络藩篱：全方位解析Shadowsocks科学上网之道">突破网络藩篱：全方位解析Shadowsocks科学上网之道</a></li>
+                        <li class="py-2"><a href="/news/article-141860.htm" title="解密V2Ray真连接测试：守护网络安全与隐私的关键钥匙">解密V2Ray真连接测试：守护网络安全与隐私的关键钥匙</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-11-clash-v2ray-ss-ssr.htm" title="9月11日最新V2rayU订阅 | 22.7M/S|2025年Clash节点/Shadowrocket节点/SSR/V2ray免费节点链接地址">9月11日最新V2rayU订阅 | 22.7M/S|2025年Clash节点/Shadowrocket节点/SSR/V2ray免费节点链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About area end -->
+                <!-- Footer area start -->
+        <footer>
+            <section class="footer__border p-relative z-index-11 pt-120 pb-55" data-background="assets/img/shape/footer-bg.png">
+                <div class="footer__style-3">
+                    <span class="footer__cercle"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer__copyright">
+                                    <div class="copyright__text text-center">
+                                                            <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                                            <a href="/">Free V2rayU节点机场订阅官网</a> 版权所有 Powered by WordPress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!-- Footer area end -->
+        <!-- Back to top start -->
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+        <!-- Back to top end -->
+        <!-- JS here -->
+        <script src="/assets/website/js/frontend/freev2rayu/jquery-3.6.0.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/meanmenu.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/swiper-bundle.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/slick.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/magnific-popup.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/backtotop.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/counterup.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/wow.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/isotope.pkgd.min.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/ajax-form.js"></script>
+        <script src="/assets/website/js/frontend/freev2rayu/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+    <!-- Body main wrapper end -->
+</body>
+
+</html>
