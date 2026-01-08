@@ -415,46 +415,6 @@ A：绝大多数情况下表现优异，但仍受限于节点质量和网络环�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 TUN 模式与 SOCKS 模式有何差异？</h5></div>
-    <div class="panel-body">
-        TUN 模式通过虚拟网卡拦截所有流量，更接近系统级代理；SOCKS 模式则仅作用于指定应用。TUN 模式更适合全局代理需求，而 SOCKS 模式轻量快捷，适用于游戏或单软件加速。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 精确端口分流如何提升游戏连接？</h5></div>
-    <div class="panel-body">
-        Sing-box 可按端口设置流量分流规则，将游戏流量分配到低延迟节点。结合策略组使用，可保证游戏连接稳定，减少延迟和掉线，提高流畅度和网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的策略组支持哪些节点选择策略？</h5></div>
-    <div class="panel-body">
-        支持按延迟选择、随机选择、轮询或手动选择节点。结合规则匹配，用户可实现不同网站或应用使用不同节点，提高访问速度和网络稳定性，同时降低管理复杂度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何设置用户带宽限制？</h5></div>
-    <div class="panel-body">
-        管理员可为每个用户设置独立带宽和流量配额，超出时可自动降速或阻止访问。这样可确保服务器资源合理分配，避免单用户占用过多带宽，提高整体网络效率和公平性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否支持节点手动排序？</h5></div>
-    <div class="panel-body">
-        支持。用户可以根据延迟或使用需求手动排序节点顺序，结合策略组和规则文件实现基本分流管理。虽然不支持自动订阅更新，但满足轻量用户的节点管理需求。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆插件如何增强隐蔽性？</h5></div>
-    <div class="panel-body">
-        混淆插件可模拟正常协议特征，如 HTTP 或 TLS 流量，使 SSR 流量难以被检测。合理选择混淆方式和协议，可提升在高封锁环境下的长期稳定性和安全性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么区别？</h5></div>
-    <div class="panel-body">
-        Nekoray 是基于 sing-box 的多平台代理客户端，支持 Windows、Linux 等系统；而 Nekobox 则是为 Android 设计的移动版本。两者共享相同的核心逻辑，均支持 VMess、VLess、Trojan 等协议，适合跨设备同步使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 TCP/UDP 分流适合哪些应用？</h5></div>
-    <div class="panel-body">
-        TCP 分流适合网页、下载和视频播放，UDP 分流适合游戏、语音和实时视频。Netch 可同时代理 TCP 和 UDP 流量，实现精准分流，保证不同应用的最佳性能。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray PAC 模式如何提高访问速度？</h5></div>
     <div class="panel-body">
         PAC 模式根据规则判断流量是否走代理，无需手动切换节点。适合访问国内外混合网站，提高访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
@@ -462,7 +422,47 @@ A：绝大多数情况下表现优异，但仍受限于节点质量和网络环�
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 节点延迟排序如何提高稳定性？</h5></div>
     <div class="panel-body">
-        Shadowrocket 测试节点延迟和丢包率，将低延迟节点优先使用。结合策略组和规则文件，可保证网页、视频和游戏流量通过最优节点，提高连接稳定性和访问速度。    </div>
+        Shadowrocket 测试节点延迟和丢包率，将低延迟节点优先使用。结合策略组和规则文件，可保证网页、视频和游戏流量通过最优节点，提高连接稳定性和访问速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的策略组支持哪些节点选择策略？</h5></div>
+    <div class="panel-body">
+        支持按延迟选择、随机选择、轮询或手动选择节点。结合规则匹配，用户可实现不同网站或应用使用不同节点，提高访问速度和网络稳定性，同时降低管理复杂度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 是否支持节点手动排序？</h5></div>
+    <div class="panel-body">
+        支持。用户可以根据延迟或使用需求手动排序节点顺序，结合策略组和规则文件实现基本分流管理。虽然不支持自动订阅更新，但满足轻量用户的节点管理需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 如何设置用户带宽限制？</h5></div>
+    <div class="panel-body">
+        管理员可为每个用户设置独立带宽和流量配额，超出时可自动降速或阻止访问。这样可确保服务器资源合理分配，避免单用户占用过多带宽，提高整体网络效率和公平性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的 TCP/UDP 分流适合哪些应用？</h5></div>
+    <div class="panel-body">
+        TCP 分流适合网页、下载和视频播放，UDP 分流适合游戏、语音和实时视频。Netch 可同时代理 TCP 和 UDP 流量，实现精准分流，保证不同应用的最佳性能。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 精确端口分流如何提升游戏连接？</h5></div>
+    <div class="panel-body">
+        Sing-box 可按端口设置流量分流规则，将游戏流量分配到低延迟节点。结合策略组使用，可保证游戏连接稳定，减少延迟和掉线，提高流畅度和网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么区别？</h5></div>
+    <div class="panel-body">
+        Nekoray 是基于 sing-box 的多平台代理客户端，支持 Windows、Linux 等系统；而 Nekobox 则是为 Android 设计的移动版本。两者共享相同的核心逻辑，均支持 VMess、VLess、Trojan 等协议，适合跨设备同步使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的 TUN 模式与 SOCKS 模式有何差异？</h5></div>
+    <div class="panel-body">
+        TUN 模式通过虚拟网卡拦截所有流量，更接近系统级代理；SOCKS 模式则仅作用于指定应用。TUN 模式更适合全局代理需求，而 SOCKS 模式轻量快捷，适用于游戏或单软件加速。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的混淆插件如何增强隐蔽性？</h5></div>
+    <div class="panel-body">
+        混淆插件可模拟正常协议特征，如 HTTP 或 TLS 流量，使 SSR 流量难以被检测。合理选择混淆方式和协议，可提升在高封锁环境下的长期稳定性和安全性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -491,16 +491,16 @@ A：绝大多数情况下表现优异，但仍受限于节点质量和网络环�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-22-free-v2ray.htm" title="11月22日最新V2rayU订阅 | 18.4M/S|2025年Singbox节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点免费节点链接地址">11月22日最新V2rayU订阅 | 18.4M/S|2025年Singbox节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-24-free-node-subscribe.htm" title="12月24日最新V2rayU订阅 | 19.9M/S|2025年SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点免费节点链接地址">12月24日最新V2rayU订阅 | 19.9M/S|2025年SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-9-free-clash.htm" title="12月9日最新V2rayU订阅 | 20.4M/S|2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点免费节点链接地址">12月9日最新V2rayU订阅 | 20.4M/S|2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-22-free-ssr-node.htm" title="12月22日最新V2rayU订阅 | 21M/S|2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点免费节点链接地址">12月22日最新V2rayU订阅 | 21M/S|2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-5-free-node-subscribe.htm" title="11月5日最新V2rayU订阅 | 20.2M/S|2025年Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点免费节点链接地址">11月5日最新V2rayU订阅 | 20.2M/S|2025年Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-31-free-subscribe-node.htm" title="12月31日最新V2rayU订阅 | 19.8M/S|2025年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点免费节点链接地址">12月31日最新V2rayU订阅 | 19.8M/S|2025年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点免费节点链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-12-19-free-subscribe-node.htm" title="12月19日最新V2rayU订阅 | 18M/S|2025年V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点免费节点链接地址">12月19日最新V2rayU订阅 | 18M/S|2025年V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-11-node-share.htm" title="11月11日最新V2rayU订阅 | 19.9M/S|2025年V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点链接地址">11月11日最新V2rayU订阅 | 19.9M/S|2025年V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-14-free-v2ray.htm" title="12月14日最新V2rayU订阅 | 19.7M/S|2025年SSR节点/Shadowrocket节点/Clash节点/Singbox节点/V2ray节点免费节点链接地址">12月14日最新V2rayU订阅 | 19.7M/S|2025年SSR节点/Shadowrocket节点/Clash节点/Singbox节点/V2ray节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-14-free-v2ray.htm" title="11月14日最新V2rayU订阅 | 20.2M/S|2025年V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点免费节点链接地址">11月14日最新V2rayU订阅 | 20.2M/S|2025年V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-5-free-ssr-subscribe.htm" title="12月5日最新V2rayU订阅 | 19.7M/S|2025年SSR节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点免费节点链接地址">12月5日最新V2rayU订阅 | 19.7M/S|2025年SSR节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-11-shadowrocket-node.htm" title="12月11日最新V2rayU订阅 | 21.7M/S|2025年SSR节点/Singbox节点/Clash节点/V2ray节点/Shadowrocket节点免费节点链接地址">12月11日最新V2rayU订阅 | 21.7M/S|2025年SSR节点/Singbox节点/Clash节点/V2ray节点/Shadowrocket节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-9-free-clash.htm" title="12月9日最新V2rayU订阅 | 20.4M/S|2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点免费节点链接地址">12月9日最新V2rayU订阅 | 20.4M/S|2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-24-free-node-subscribe.htm" title="12月24日最新V2rayU订阅 | 19.9M/S|2025年SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点免费节点链接地址">12月24日最新V2rayU订阅 | 19.9M/S|2025年SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-25-free-v2ray.htm" title="12月25日最新V2rayU订阅 | 21.1M/S|2025年Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点免费节点链接地址">12月25日最新V2rayU订阅 | 21.1M/S|2025年Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-4-free-v2ray.htm" title="1月4日最新V2rayU订阅 | 22.9M/S|2025年V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点免费节点链接地址">1月4日最新V2rayU订阅 | 22.9M/S|2025年V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-10-free-clash.htm" title="12月10日最新V2rayU订阅 | 22.3M/S|2025年V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点链接地址">12月10日最新V2rayU订阅 | 22.3M/S|2025年V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-26-free-ssr-subscribe.htm" title="12月26日最新V2rayU订阅 | 22.2M/S|2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点免费节点链接地址">12月26日最新V2rayU订阅 | 22.2M/S|2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-1-shadowrocket-node.htm" title="1月1日最新V2rayU订阅 | 19.9M/S|2025年Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点免费节点链接地址">1月1日最新V2rayU订阅 | 19.9M/S|2025年Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点免费节点链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -512,13 +512,10 @@ A：绝大多数情况下表现优异，但仍受限于节点质量和网络环�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                     </ul>
     </div>
