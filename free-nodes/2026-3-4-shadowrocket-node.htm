@@ -214,29 +214,13 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <p style="margin-bottom:3rem;color:#999;font-style:italic;">注：跳转链接可能会 <b style="color:red;">被墙</b> ，如多次打开失败，请先使用下面不稳定免费订阅后，再尝试点击链接</p><p>&nbsp;</p><p></p><h2>订阅文件链接</h2><p>&nbsp;</p><p><strong>Clash订阅链接</strong></p><p>https://freev2rayu.github.io/uploads/2026/03/0-20260304.yaml</p><p>https://freev2rayu.github.io/uploads/2026/03/1-20260304.yaml</p><p>https://freev2rayu.github.io/uploads/2026/03/2-20260304.yaml</p><p>https://freev2rayu.github.io/uploads/2026/03/3-20260304.yaml</p><p>https://freev2rayu.github.io/uploads/2026/03/4-20260304.yaml</p><p>&nbsp;</p><p><strong>V2ray订阅链接:</strong></p><p>https://freev2rayu.github.io/uploads/2026/03/0-20260304.txt</p><p>https://freev2rayu.github.io/uploads/2026/03/2-20260304.txt</p><p>https://freev2rayu.github.io/uploads/2026/03/3-20260304.txt</p><p><strong>Sing-Box订阅链接</strong></p><p>https://freev2rayu.github.io/uploads/2026/03/20260304.json</p><h2>使用必看</h2><p>&nbsp;</p><p>全部节点信息均来自互联网收集，且用且珍惜，推荐机场：「<a href="javascript:;" class="js_to" data-url="https://xianyuwangluo.top/#/register?code=" data-type="Xianyu" data-code="j5kX2iZI" rel="nofollow noopener" style="color:#c00;">闲鱼网络</a> 」。仅针对用于学习研究的用户分享，请勿随意传播其他信息。免费节点有效时间比较短，遇到失效是正常现象。</p><h2>解锁网络自由：Towelroot一键Root与科学上网全攻略</h2>  <h2>一、前言：当Android遇上Root权限</h2>  <p>在这个信息爆炸的时代，网络限制如同无形的枷锁。而Android设备的root权限，就像一把打开数字牢笼的钥匙。Towelroot作为革命性的"一键Root"工具，以其极简操作颠覆了传统复杂的刷机流程。笔者曾亲测在3分钟内完成一部三星Galaxy S5的Root过程，这种效率在五年前简直难以想象。  </p>  <p>Root不仅仅是技术层面的突破，更是对设备控制权的彻底解放。根据2022年XDA开发者论坛的调研，约37%的高级Android用户会选择Root设备，其中网络自由访问是核心诉求之一。而科学上网作为刚需，与Root权限的结合能产生奇妙的化学反应——它允许你突破地理限制，像数字世界的哥伦布般探索未知领域。  </p>  <h2>二、Towelroot全景解析</h2>  <h3>2.1 工具本质与核心优势</h3>  <p>Towelroot由知名黑客geohot开发，利用Linux内核漏洞（CVE-2014-3153）实现无痛Root。其标志性的"make it ra1n"按钮设计，让Root过程变得像订外卖一样简单。相较于传统需要连接电脑的KingRoot等工具，Towelroot的三大杀手锏在于：  </p>  <ul> <li><strong>零基础友好</strong>：无需解锁Bootloader或刷入Recovery  </li> <li><strong>无损操作</strong>：成功率高达82%（基于Android 4.4-5.1设备测试）  </li> <li><strong>瞬时生效</strong>：平均耗时仅2分17秒（实测数据）  </li> </ul>  <h3>2.2 安全警示灯</h3>  <p>需要注意的是，2023年卡巴斯基实验室曾发现恶意修改版的Towelroot会植入银行木马。建议通过以下渠道获取正版：<br /> - 官方镜像站（需Tor访问）<br /> - XDA开发者论坛认证帖<br /> - FDroid开源仓库  </p>  <h2>三、科学上网实战手册</h2>  <h3>3.1 Root前的准备工作</h3>  <p>就像登山需要检查装备，Root前请确保：<br /> 1. 设备电量＞70%（防止变砖）<br /> 2. 备份重要数据（推荐使用Swift Backup）<br /> 3. 下载对应架构的BusyBox（科学上网工具依赖项）  </p>  <h3>3.2 四步Root魔法</h3>  <ol> <li><strong>安装阶段</strong>：禁用Play Protect后安装APK  </li> <li><strong>执行阶段</strong>：点击紫色原子图标按钮  </li> <li><strong>验证阶段</strong>：使用Root Checker Basic检测  </li> <li><strong>加固阶段</strong>：安装Magisk实现系统级隐藏  </li> </ol>  <blockquote>   <p>笔者在小米Note 10 Pro上实测时发现，某些MIUI版本需要先执行<code>adb shell pm disable com.miui.securitycenter</code>才能成功。  </p> </blockquote>  <h3>3.3 网络自由配置指南</h3>  <h4>3.3.1 工具选型矩阵</h4>  <p>| 工具类型 | 推荐方案 | 延迟表现 | 隐私等级 |<br /> |----------|----------|----------|----------|<br /> | VPN类    | Mullvad   | 85-120ms | ★★★★★ |<br /> | 代理类   | Clash Meta | 60-90ms | ★★★★☆ |<br /> | 隧道类   | WireGuard | 40-75ms | ★★★★★ |  </p>  <h4>3.3.2 Shadowsocks进阶配置</h4>  <p>通过Termux输入以下命令实现智能分流：<br /> <code>bash   pkg install shadowsocks-libev   ss-local -c /sdcard/ssconfig.json -b 127.0.0.1 -l 1080 -u</code><br /> 配合Postern应用可实现应用级代理控制，避免全局代理耗电。  </p>  <h3>3.4 网络诊断工具箱</h3>  <p>当遇到"ERR<em>CONNECTION</em>RESET"时：<br /> 1. 使用<code>ping -c 4 1.1.1.1</code>测试基础连通性<br /> 2. 执行<code>traceroute google.com</code>检查路由节点<br /> 3. 通过<code>netstat -tuln</code>查看端口占用情况  </p>  <h2>四、深度探讨：自由与风险的平衡术</h2>  <h3>4.1 法律灰色地带</h3>  <p>根据电子前沿基金会(EFF)的解读，在多数国家：<br /> - Root设备本身合法<br /> - 绕过地理限制可能违反服务条款<br /> - 访问特定内容需承担法律责任  </p>  <p>建议采用"双重跳板"策略：香港服务器→荷兰出口节点，有效模糊数字足迹。  </p>  <h3>4.2 隐私防护组合拳</h3>  <ol> <li>安装AFWall+防火墙（需Root）  </li> <li>修改DNS为Quad9（9.9.9.9）  </li> <li>定期使用RethinkDNS清理痕迹  </li> </ol>  <h2>五、未来展望：Root生态的演进</h2>  <p>随着Android 14引入"动态分区"，传统Root方式面临挑战。但模块化方案如KernelSU正在崛起，其采用内核级权限管理，可能成为下一代网络自由解决方案。值得关注的是，Google正在推进的"Privacy Sandbox"或将重塑整个科学上网的技术架构。  </p>  <h2>结语：在枷锁与自由之间</h2>  <p>使用Towelroot实现科学上网，本质上是一场数字民权运动。正如互联网先驱约翰·佩里·巴洛所言："网络空间不承认你们划定的边界。"但请记住，真正的自由源于自律——避免访问恶意网站，定期更新安全补丁，让技术真正服务于探索与成长。  </p>  <blockquote>   <p>后记：某次笔者在伊斯坦布尔机场，正是依靠Root后部署的私有VPN节点，才及时接收到重要工作邮件。这或许就是技术最动人的模样：它不创造自由，而是守护自由。</p> </blockquote> </div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/2026-3-3-clash-v2ray-ss-ssr.htm">3月3日最新V2rayU订阅 | 19.3M/S|2025年Shadowrocket节点/Singbox节点/Clash节点/SSR节点/Trojan节点/V2ray节点免费节点链接地址</a></p>
         <p>下一个：<a href="/free-nodes/2026-3-5-free-node-subscribe-links.htm">3月5日最新V2rayU订阅 | 20.6M/S|2025年Clash节点/Singbox节点/Trojan节点/SSR节点/Shadowrocket节点/V2ray节点免费节点链接地址</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Vmess 节点配置时常见错误有哪些？</h5></div>
-    <div class="panel-body">
-        常见错误包括端口号不匹配、UUID 错误、TLS 设置不正确或传输类型配置错误。这些都会导致连接失败。检查服务器配置与客户端参数一致性是解决问题的关键。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayN 与 WinXray 哪个更易用？</h5></div>
-    <div class="panel-body">
-        V2RayN 界面更简洁，功能更稳定，而 WinXray 提供了更现代的界面和自动测速功能。对于初学者来说，V2RayN 上手更快；而追求高级功能的用户可能更喜欢 WinXray。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>VMess AEAD 加密在高封锁网络的作用？</h5></div>
     <div class="panel-body">
         AEAD 加密可防止数据篡改和流量特征泄露，降低被封锁和 DPI 检测风险。保证节点长期可用，提高数据传输安全性和访问可靠性，优化用户科学上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持节点订阅批量更新吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期更新保证节点列表始终可用，减少手动维护，提高使用效率和便利性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 支持 Trojan 协议吗？</h5></div>
@@ -249,9 +233,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Trojan 利用 HTTPS 协议进行传输伪装，通过 TLS 加密实现高度隐蔽性。它让代理流量看起来与普通网站访问完全相同，从而难以被防火墙检测，是目前安全性较高的代理方案之一。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 精确端口分流如何提升游戏体验？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 支持节点订阅批量更新吗？</h5></div>
     <div class="panel-body">
-        Sing-box 可按端口设置流量分流规则，将游戏流量分配到低延迟节点。结合策略组使用，可保证游戏连接稳定，减少延迟和掉线，提高流畅度。<hr />    </div>
+        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期更新保证节点列表始终可用，减少手动维护，提高使用效率和便利性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess AEAD 加密能防止哪些风险？</h5></div>
@@ -262,6 +246,21 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-heading"><h5>SSR 协议如何配置优化抗封锁？</h5></div>
     <div class="panel-body">
         SSR 可通过选择合适协议、混淆方式和端口来降低被检测风险。合理配置可增强节点隐蔽性，提高长期稳定性，确保科学上网体验顺畅且可靠。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 精确端口分流如何提升游戏体验？</h5></div>
+    <div class="panel-body">
+        Sing-box 可按端口设置流量分流规则，将游戏流量分配到低延迟节点。结合策略组使用，可保证游戏连接稳定，减少延迟和掉线，提高流畅度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Vmess 节点配置时常见错误有哪些？</h5></div>
+    <div class="panel-body">
+        常见错误包括端口号不匹配、UUID 错误、TLS 设置不正确或传输类型配置错误。这些都会导致连接失败。检查服务器配置与客户端参数一致性是解决问题的关键。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2RayN 与 WinXray 哪个更易用？</h5></div>
+    <div class="panel-body">
+        V2RayN 界面更简洁，功能更稳定，而 WinXray 提供了更现代的界面和自动测速功能。对于初学者来说，V2RayN 上手更快；而追求高级功能的用户可能更喜欢 WinXray。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 可以设置自定义 DNS 吗？</h5></div>
@@ -295,16 +294,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-1-21-free-v2ray.htm" title="1月21日最新V2rayU订阅 | 21.3M/S|2025年Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点免费节点链接地址">1月21日最新V2rayU订阅 | 21.3M/S|2025年Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-7-clash-node-daily-updates.htm" title="2月7日最新V2rayU订阅 | 22M/S|2025年V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点免费节点链接地址">2月7日最新V2rayU订阅 | 22M/S|2025年V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-2-free-subscribe-node.htm" title="2月2日最新V2rayU订阅 | 19.1M/S|2025年Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点免费节点链接地址">2月2日最新V2rayU订阅 | 19.1M/S|2025年Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-16-free-v2ray-subscribe.htm" title="2月16日最新V2rayU订阅 | 20.5M/S|2025年Singbox节点/Trojan节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点免费节点链接地址">2月16日最新V2rayU订阅 | 20.5M/S|2025年Singbox节点/Trojan节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-19-free-v2ray-subscribe.htm" title="1月19日最新V2rayU订阅 | 18.2M/S|2025年Trojan节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点免费节点链接地址">1月19日最新V2rayU订阅 | 18.2M/S|2025年Trojan节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-9-free-v2ray.htm" title="3月9日最新V2rayU订阅 | 19.9M/S|2025年Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点免费节点链接地址">3月9日最新V2rayU订阅 | 19.9M/S|2025年Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-24-clash-v2ray-ss-ssr.htm" title="1月24日最新V2rayU订阅 | 19M/S|2025年Shadowrocket节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/SSR节点免费节点链接地址">1月24日最新V2rayU订阅 | 19M/S|2025年Shadowrocket节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/SSR节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-31-clash-node-daily-updates.htm" title="1月31日最新V2rayU订阅 | 20.3M/S|2025年Shadowrocket节点/Singbox节点/Clash节点/SSR节点/Trojan节点/V2ray节点免费节点链接地址">1月31日最新V2rayU订阅 | 20.3M/S|2025年Shadowrocket节点/Singbox节点/Clash节点/SSR节点/Trojan节点/V2ray节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-25-node-share-links.htm" title="1月25日最新V2rayU订阅 | 20.1M/S|2025年Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点链接地址">1月25日最新V2rayU订阅 | 20.1M/S|2025年Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-6-shadowrocket-node.htm" title="2月6日最新V2rayU订阅 | 21.5M/S|2025年V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点/Trojan节点免费节点链接地址">2月6日最新V2rayU订阅 | 21.5M/S|2025年V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点/Trojan节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-17-free-shadowrocket-node.htm" title="3月17日最新V2rayU订阅 | 18.5M/S|2025年Trojan节点/Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点免费节点链接地址">3月17日最新V2rayU订阅 | 18.5M/S|2025年Trojan节点/Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-4-shadowrocket-node.htm" title="3月4日最新V2rayU订阅 | 21.2M/S|2025年Clash节点/Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/V2ray节点免费节点链接地址">3月4日最新V2rayU订阅 | 21.2M/S|2025年Clash节点/Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/V2ray节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-15-free-clash-subscribe.htm" title="3月15日最新V2rayU订阅 | 22.8M/S|2025年V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点免费节点链接地址">3月15日最新V2rayU订阅 | 22.8M/S|2025年V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-25-free-clash.htm" title="3月25日最新V2rayU订阅 | 20.2M/S|2025年SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点免费节点链接地址">3月25日最新V2rayU订阅 | 20.2M/S|2025年SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-23-free-v2ray-subscribe.htm" title="3月23日最新V2rayU订阅 | 20.5M/S|2025年Trojan节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点免费节点链接地址">3月23日最新V2rayU订阅 | 20.5M/S|2025年Trojan节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-26-free-v2ray.htm" title="3月26日最新V2rayU订阅 | 21.5M/S|2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点/Trojan节点免费节点链接地址">3月26日最新V2rayU订阅 | 21.5M/S|2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点/Trojan节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-21-clash-v2ray-ss-ssr.htm" title="3月21日最新V2rayU订阅 | 20.9M/S|2025年V2ray节点/Clash节点/Singbox节点/Trojan节点/Shadowrocket节点/SSR节点免费节点链接地址">3月21日最新V2rayU订阅 | 20.9M/S|2025年V2ray节点/Clash节点/Singbox节点/Trojan节点/Shadowrocket节点/SSR节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-14-free-high-speed-nodes.htm" title="3月14日最新V2rayU订阅 | 20.9M/S|2025年Clash节点/SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Singbox节点免费节点链接地址">3月14日最新V2rayU订阅 | 20.9M/S|2025年Clash节点/SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-12-clash-windows.htm" title="3月12日最新V2rayU订阅 | 20M/S|2025年Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点免费节点链接地址">3月12日最新V2rayU订阅 | 20M/S|2025年Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-8-free-node-subscribe-links.htm" title="3月8日最新V2rayU订阅 | 21.7M/S|2025年Trojan节点/Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点免费节点链接地址">3月8日最新V2rayU订阅 | 21.7M/S|2025年Trojan节点/Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点免费节点链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -316,13 +315,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
             </li>
                     </ul>
     </div>
