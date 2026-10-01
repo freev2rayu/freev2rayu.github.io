@@ -388,17 +388,13 @@ A4：合理配置带宽和流量监控，定期分析使用数据，必要时升
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/free-high-speed-nodes-2026-9-23.htm">9月23日最新V2rayU订阅 | 21.1M/S|2025年Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点/Clash节点免费节点链接地址</a></p>
+        <p>下一个：<a href="/free-nodes/free-v2ray-subscribe-2026-9-25.htm">9月25日最新V2rayU订阅 | 19.1M/S|2025年V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/SSR节点/Clash节点免费节点链接地址</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 使用 AEAD 加密对安全性有何帮助？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 节点订阅自动更新如何实现？</h5></div>
     <div class="panel-body">
-        AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性，同时降低被检测的风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用对高频连接的优势？</h5></div>
-    <div class="panel-body">
-        多路复用可让多个短连接共享同一通道，减少握手和加密开销，提高吞吐量。适合高频短连接场景，如即时通讯和游戏，保证流量快速、稳定传输。<hr />    </div>
+        用户添加订阅 URL 后，Nekoray 会定期下载最新节点列表并替换旧节点。保持节点列表最新可减少手动维护，保证节点可用性和网络连接稳定性，提升使用体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 与 Clash 有什么区别？</h5></div>
@@ -406,19 +402,14 @@ A4：合理配置带宽和流量监控，定期分析使用数据，必要时升
         V2Ray 是一款代理核心工具，提供底层网络传输和加密支持；而 Clash 是一个多协议客户端，可以整合 V2Ray、Trojan、Shadowsocks 等多种协议。简而言之，V2Ray 负责“传输”，Clash 负责“管理与分流”。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅自动更新如何实现？</h5></div>
+    <div class="panel-heading"><h5>VMess 使用 AEAD 加密对安全性有何帮助？</h5></div>
     <div class="panel-body">
-        用户添加订阅 URL 后，Nekoray 会定期下载最新节点列表并替换旧节点。保持节点列表最新可减少手动维护，保证节点可用性和网络连接稳定性，提升使用体验。<hr />    </div>
+        AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性，同时降低被检测的风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何用 iptables 限制 V2Ray 服务的访问来源？</h5></div>
+    <div class="panel-heading"><h5>如何防止 Clash 被系统防火墙阻断？</h5></div>
     <div class="panel-body">
-        使用 iptables 规则仅允许可信 IP 或 CDN 的中转 IP 访问服务端口，例如 `iptables -A INPUT -p tcp -s <trusted_ip> --dport 443 -j ACCEPT`，并在默认策略下拒绝其他来源，从而降低被扫描与滥用风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否支持多节点手动管理？</h5></div>
-    <div class="panel-body">
-        支持。用户可以手动输入节点参数或扫描二维码导入节点，并可进行修改或删除。虽然不支持订阅自动更新，但足够满足轻量用户对节点管理和分流的基本需求。<hr />    </div>
+        请在防火墙设置中允许 Clash 的执行文件通过网络访问，并开放其监听端口。若使用 Windows Defender，可在防火墙高级规则中手动添加入站和出站规则，确保代理通信正常。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 为什么在 iOS 上广受欢迎？</h5></div>
@@ -426,14 +417,24 @@ A4：合理配置带宽和流量监控，定期分析使用数据，必要时升
         Potatso Lite 是一款操作简洁的代理工具，支持多种代理协议和自定义规则。它适合不需要复杂配置的用户，界面友好、性能稳定，非常适合日常轻量使用和应用代理。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 多路复用对高频连接的优势？</h5></div>
+    <div class="panel-body">
+        多路复用可让多个短连接共享同一通道，减少握手和加密开销，提高吞吐量。适合高频短连接场景，如即时通讯和游戏，保证流量快速、稳定传输。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 节点延迟检测如何优化网络访问？</h5></div>
     <div class="panel-body">
         Clash 会定期测试节点延迟，并结合策略组自动选择最优节点。避免访问高延迟或失效节点，提升网页浏览、视频播放和游戏速度及稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何防止 Clash 被系统防火墙阻断？</h5></div>
+    <div class="panel-heading"><h5>Potatso Lite 是否支持多节点手动管理？</h5></div>
     <div class="panel-body">
-        请在防火墙设置中允许 Clash 的执行文件通过网络访问，并开放其监听端口。若使用 Windows Defender，可在防火墙高级规则中手动添加入站和出站规则，确保代理通信正常。<hr />    </div>
+        支持。用户可以手动输入节点参数或扫描二维码导入节点，并可进行修改或删除。虽然不支持订阅自动更新，但足够满足轻量用户对节点管理和分流的基本需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何用 iptables 限制 V2Ray 服务的访问来源？</h5></div>
+    <div class="panel-body">
+        使用 iptables 规则仅允许可信 IP 或 CDN 的中转 IP 访问服务端口，例如 `iptables -A INPUT -p tcp -s <trusted_ip> --dport 443 -j ACCEPT`，并在默认策略下拒绝其他来源，从而降低被扫描与滥用风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的 TLS 配置如何增强抗封锁能力？</h5></div>
@@ -486,16 +487,16 @@ A4：合理配置带宽和流量监控，定期分析使用数据，必要时升
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-8-free-shadowrocket-node.htm" title="9月8日最新V2rayU订阅 | 22M/S|2025年Clash节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点免费节点链接地址">9月8日最新V2rayU订阅 | 22M/S|2025年Clash节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-30-free-shadowrocket-node.htm" title="9月30日最新V2rayU订阅 | 21.5M/S|2025年Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点/Trojan节点免费节点链接地址">9月30日最新V2rayU订阅 | 21.5M/S|2025年Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点/Trojan节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-clash-node.htm" title="8月12日最新V2rayU订阅 | 21.2M/S|2025年V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点免费节点链接地址">8月12日最新V2rayU订阅 | 21.2M/S|2025年V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-9-7.htm" title="9月7日最新V2rayU订阅 | 22.2M/S|2025年Shadowrocket节点/Clash节点/Singbox节点/SSR节点/V2ray节点/Trojan节点免费节点链接地址">9月7日最新V2rayU订阅 | 22.2M/S|2025年Shadowrocket节点/Clash节点/Singbox节点/SSR节点/V2ray节点/Trojan节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-26-free-shadowrocket-node.htm" title="8月26日最新V2rayU订阅 | 22.4M/S|2025年Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点免费节点链接地址">8月26日最新V2rayU订阅 | 22.4M/S|2025年Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-31.htm" title="8月31日最新V2rayU订阅 | 23M/S|2025年Shadowrocket节点/Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点免费节点链接地址">8月31日最新V2rayU订阅 | 23M/S|2025年Shadowrocket节点/Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-13.htm" title="9月13日最新V2rayU订阅 | 21.6M/S|2025年Trojan节点/Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点免费节点链接地址">9月13日最新V2rayU订阅 | 21.6M/S|2025年Trojan节点/Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点免费节点链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/shadowrocket-node-2026-8-23.htm" title="8月23日最新V2rayU订阅 | 19M/S|2025年Shadowrocket节点/SSR节点/Clash节点/Trojan节点/V2ray节点/Singbox节点免费节点链接地址">8月23日最新V2rayU订阅 | 19M/S|2025年Shadowrocket节点/SSR节点/Clash节点/Trojan节点/V2ray节点/Singbox节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-18-free-shadowrocket-node.htm" title="9月18日最新V2rayU订阅 | 21.5M/S|2025年Shadowrocket节点/V2ray节点/SSR节点/Trojan节点/Singbox节点/Clash节点免费节点链接地址">9月18日最新V2rayU订阅 | 21.5M/S|2025年Shadowrocket节点/V2ray节点/SSR节点/Trojan节点/Singbox节点/Clash节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-v2ray-subscribe-2026-8-7.htm" title="8月7日最新V2rayU订阅 | 20.5M/S|2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点免费节点链接地址">8月7日最新V2rayU订阅 | 20.5M/S|2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-15.htm" title="9月15日最新V2rayU订阅 | 21.1M/S|2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点免费节点链接地址">9月15日最新V2rayU订阅 | 21.1M/S|2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-20-clash-node.htm" title="9月20日最新V2rayU订阅 | 22.5M/S|2025年Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Trojan节点免费节点链接地址">9月20日最新V2rayU订阅 | 22.5M/S|2025年Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Trojan节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-shadowrocket-node.htm" title="9月4日最新V2rayU订阅 | 18.7M/S|2025年Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Trojan节点免费节点链接地址">9月4日最新V2rayU订阅 | 18.7M/S|2025年Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Trojan节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-node-2026-8-25.htm" title="8月25日最新V2rayU订阅 | 20.6M/S|2025年Clash节点/Shadowrocket节点/Singbox节点/SSR节点/Trojan节点/V2ray节点免费节点链接地址">8月25日最新V2rayU订阅 | 20.6M/S|2025年Clash节点/Shadowrocket节点/Singbox节点/SSR节点/Trojan节点/V2ray节点免费节点链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-14-clash-node.htm" title="9月14日最新V2rayU订阅 | 19.5M/S|2025年V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点/SSR节点免费节点链接地址">9月14日最新V2rayU订阅 | 19.5M/S|2025年V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点/SSR节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-16-clash-node-daily-updates.htm" title="9月16日最新V2rayU订阅 | 19.7M/S|2025年Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点免费节点链接地址">9月16日最新V2rayU订阅 | 19.7M/S|2025年Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/shadowrocket-node-2026-8-19.htm" title="8月19日最新V2rayU订阅 | 21.5M/S|2025年Singbox节点/Trojan节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点免费节点链接地址">8月19日最新V2rayU订阅 | 21.5M/S|2025年Singbox节点/Trojan节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-28-free-shadowrocket-node.htm" title="8月28日最新V2rayU订阅 | 19.8M/S|2025年Clash节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点免费节点链接地址">8月28日最新V2rayU订阅 | 19.8M/S|2025年Clash节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点免费节点链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -507,7 +508,10 @@ A4：合理配置带宽和流量监控，定期分析使用数据，必要时升
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
